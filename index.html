@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marwan Store | متجر الخدمات الرقمية الأول</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--bg:#0a0d15;--card:#111625;--line:#232a42;--pri:#5b6bff;--pri2:#7c5cff;--txt:#e9eefb;--mut:#8a94b5}
+*{box-sizing:border-box;font-family:'Cairo',sans-serif}body{margin:0;background:#0a0d15;color:var(--txt)}
+.top{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+.logo{font-weight:900;font-size:20px;display:flex;gap:10px;align-items:center}.logo i{background:linear-gradient(135deg,var(--pri),var(--pri2));padding:9px 10px;border-radius:12px}
+.btn{border:0;border-radius:12px;padding:11px 18px;font-weight:700;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.btn-p{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff}.btn-ghost{background:#1a2035;color:#fff;border:1px solid var(--line)}
+.hero{max-width:1200px;margin:auto;padding:20px;display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.filters{max-width:1200px;margin:auto;padding:0 18px;display:flex;gap:8px;overflow:auto}
+.filter{padding:8px 16px;border-radius:999px;background:#141a2b;border:1px solid var(--line);color:var(--mut);cursor:pointer;font-weight:700;white-space:nowrap}.filter.active{background:#fff;color:#000}
+.grid{max-width:1200px;margin:auto;padding:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.service{background:#111625;border:1px solid var(--line);border-radius:18px;padding:16px}
+.platform{font-size:11px;padding:4px 10px;border-radius:999px;background:#1e2540;color:#8aa0ff;border:1px solid #2b365f}
+.field{width:100%;background:#0e1322;border:1px solid var(--line);border-radius:12px;padding:12px;color:#fff;margin:6px 0;outline:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:50;padding:14px}
+.modal-card{background:#131a30;border:1px solid #2a355b;border-radius:20px;padding:20px;width:100%;max-width:420px}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="logo"><i class="fa-solid fa-crown"></i> Marwan Store</div>
+<div style="display:flex;gap:8px"><button id="loginBtn" class="btn btn-ghost">دخول</button><button id="logoutBtn" class="btn btn-ghost hidden">خروج</button><button id="adminBtn" class="btn btn-p hidden">لوحة الأدمن</button></div>
+</div>
+
+<div class="hero">
+<div class="card"><p style="color:#8b9bff;font-weight:800;margin:0">⚡ أسرع متجر SMM في مصر</p><h1>زود متابعينك ومشاهداتك<br><span style="color:#c19aff">في ثواني وبأرخص سعر</span></h1><p style="color:var(--mut)">تيك توك - انستجرام - فيسبوك - يوتيوب - تليجرام</p></div>
+<div class="card" id="popular"><b>الأكثر طلباً</b></div>
+</div>
+
+<div class="filters"><div class="filter active" data-f="all">الكل</div><div class="filter" data-f="TikTok">تيك توك</div><div class="filter" data-f="Instagram">انستا</div><div class="filter" data-f="Facebook">فيسبوك</div><div class="filter" data-f="YouTube">يوتيوب</div><div class="filter" data-f="Telegram">تليجرام</div></div>
+
+<div id="authModal" class="modal hidden"><div class="modal-card"><h3>دخول Marwan Store</h3><input id="email" class="field" value="moragado88@gmail.com"><input id="password" type="password" class="field" value="Maro123456"><button id="doLogin" class="btn btn-p" style="width:100%;justify-content:center">دخول</button><button onclick="document.getElementById('authModal').classList.add('hidden')" class="btn btn-ghost" style="width:100%;margin-top:8px;justify-content:center">إغلاق</button><p id="authMsg" style="color:#8ea6ff"></p></div></div>
+
+<div id="adminPanel" class="hidden" style="max-width:1200px;margin:auto;padding:0 18px">
+<div class="card" style="border:2px solid #5b6bff;margin-top:14px"><h3>إضافة خدمة جديدة</h3><input id="s_name" class="field" placeholder="مثال: 1000 متابع تيك توك حقيقي"><select id="s_platform" class="field"><option>TikTok</option><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Telegram</option></select><input id="s_price" type="number" class="field" placeholder="السعر بالجنيه"><input id="s_desc" class="field" placeholder="وصف قصير"><button id="addService" class="btn btn-p" style="width:100%">نشر الخدمة الآن</button></div>
+<div class="card" style="margin-top:14px" id="ordersList">لا توجد طلبات بعد</div>
+</div>
+
+<div class="grid" id="services"><div class="card">جاري التحميل...</div></div>
+
+<script>
+const SUPABASE_URL='https://okikwjwccskqgququowa.supabase.co';
+const SUPABASE_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWd1cXVvd2EiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc2MjE4MDI2NywiZXhwIjoyMDc3NzU2MjY3fQ.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
+let all=[], cur='all';
+function render(){
+ let list=cur==='all'?all:all.filter(s=>s.platform===cur);
+ document.getElementById('services').innerHTML=list.map(s=>`<div class="service"><div style="display:flex;justify-content:space-between"><span class="platform">${s.platform}</span><b>${s.price} ج</b></div><h3 style="margin:8px 0">${s.name}</h3><p style="color:#8a94b5;font-size:13px">${s.description||'تنفيذ فوري - ضمان'}</p><input class="field" id="url_${s.id}" placeholder="رابط الحساب او البوست"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="field" type="number" id="q_${s.id}" value="1000"><div class="field" style="display:flex;align-items:center;justify-content:center;background:#151c33;font-weight:800"><span id="t_${s.id}">${s.price*1000}</span> ج</div></div><button class="btn btn-p" style="width:100%;justify-content:center" onclick="order('${s.id}',${s.price})">طلب الآن</button></div>`).join('')||'<div class="card" style="grid-column:1/-1;text-align:center">لا توجد خدمات - أضف من لوحة الأدمن فوق</div>';
+ list.forEach(s=>{let q=document.getElementById('q_'+s.id); if(q) q.oninput=()=>{document.getElementById('t_'+s.id).innerText=(parseInt(q.value)||0)*s.price;}});
+ document.getElementById('popular').innerHTML='<b>🔥 الأكثر طلباً</b>'+all.slice(0,3).map(s=>`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.06);border-radius:12px">${s.name}<br><small style="color:#8a94b5">${s.platform} - ${s.price}ج</small></div>`).join('');
+}
+async function load(){const {data}=await sb.from('services').select('*').eq('active',true).order('id',{ascending:false}); all=data||[]; render();}
+async function order(id,price){const {data:{user}}=await sb.auth.getUser(); if(!user){document.getElementById('authModal').classList.remove('hidden');return;} const url=document.getElementById('url_'+id).value; const qty=parseInt(document.getElementById('q_'+id).value)||1; if(!url) return alert('حط الرابط الأول'); await sb.from('orders').insert({user_id:user.id,service_id:id,target_url:url,quantity:qty,total_price:price*qty,status:'pending'}); alert('✅ تم الطلب - هيتنفذ خلال دقائق'); loadOrders();}
+async function check(){const {data:{user}}=await sb.auth.getUser(); if(user){document.getElementById('loginBtn').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden'); const {data:p}=await sb.from('profiles').select('role').eq('id',user.id).single(); if(p?.role==='admin') document.getElementById('adminBtn').classList.remove('hidden');}else{document.getElementById('loginBtn').classList.remove('hidden');}}
+async function loadOrders(){const {data}=await sb.from('orders').select('*,services(name)').order('id',{ascending:false}); document.getElementById('ordersList').innerHTML='<h3>الطلبات ('+(data?.length||0)+')</h3>'+(data||[]).map(o=>`<div style="padding:10px;border-bottom:1px solid #232a42;display:flex;justify-content:space-between;gap:8px"><div><b>${o.services?.name||''}</b><br><small style="color:#8a94b5;word-break:break-all">${o.target_url} - ${o.quantity} - ${o.total_price}ج - ${o.status}</small></div><select class="field" style="width:130px" onchange="upd('${o.id}',this.value)"><option value="pending" ${o.status==='pending'?'selected':''}>انتظار</option><option value="completed" ${o.status==='completed'?'selected':''}>مكتمل</option><option value="cancelled">ملغي</option></select></div>`).join('')||'لا يوجد طلبات';}
+async function upd(id,s){await sb.from('orders').update({status:s}).eq('id',id); loadOrders();}
+document.getElementById('loginBtn').onclick=()=>document.getElementById('authModal').classList.remove('hidden');
+document.getElementById('logoutBtn').onclick=async()=>{await sb.auth.signOut(); location.reload();};
+document.getElementById('adminBtn').onclick=()=>{document.getElementById('adminPanel').classList.toggle('hidden'); loadOrders();};
+document.getElementById('doLogin').onclick=async()=>{const e=document.getElementById('email').value,p=document.getElementById('password').value; const {error}=await sb.auth.signInWithPassword({email:e,password:p}); if(error) document.getElementById('authMsg').innerText=error.message; else{document.getElementById('authModal').classList.add('hidden'); check();}};
+document.getElementById('addService').onclick=async()=>{const n=document.getElementById('s_name').value, pl=document.getElementById('s_platform').value, pr=parseFloat(document.getElementById('s_price').value), d=document.getElementById('s_desc').value; if(!n||!pr) return alert('اكتب الاسم والسعر'); await sb.from('services').insert({name:n,platform:pl,price:pr,description:d,active:true}); alert('✅ اتنشرت'); load();};
+document.querySelectorAll('.filter').forEach(f=>f.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active')); f.classList.add('active'); cur=f.dataset.f; render();});
+check(); load();
+</script>
+</body>
+</html>
