@@ -3,76 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marwan Store | متجر الخدمات الرقمية الأول</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>ملك ❤️ مروان - بموت فيكي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0d15;--card:#111625;--line:#232a42;--pri:#5b6bff;--pri2:#7c5cff;--txt:#e9eefb;--mut:#8a94b5}
-*{box-sizing:border-box;font-family:'Cairo',sans-serif}body{margin:0;background:#0a0d15;color:var(--txt)}
-.top{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
-.logo{font-weight:900;font-size:20px;display:flex;gap:10px;align-items:center}.logo i{background:linear-gradient(135deg,var(--pri),var(--pri2));padding:9px 10px;border-radius:12px}
-.btn{border:0;border-radius:12px;padding:11px 18px;font-weight:700;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
-.btn-p{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff}.btn-ghost{background:#1a2035;color:#fff;border:1px solid var(--line)}
-.hero{max-width:1200px;margin:auto;padding:20px;display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
-.filters{max-width:1200px;margin:auto;padding:0 18px;display:flex;gap:8px;overflow:auto}
-.filter{padding:8px 16px;border-radius:999px;background:#141a2b;border:1px solid var(--line);color:var(--mut);cursor:pointer;font-weight:700;white-space:nowrap}.filter.active{background:#fff;color:#000}
-.grid{max-width:1200px;margin:auto;padding:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.service{background:#111625;border:1px solid var(--line);border-radius:18px;padding:16px}
-.platform{font-size:11px;padding:4px 10px;border-radius:999px;background:#1e2540;color:#8aa0ff;border:1px solid #2b365f}
-.field{width:100%;background:#0e1322;border:1px solid var(--line);border-radius:12px;padding:12px;color:#fff;margin:6px 0;outline:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:50;padding:14px}
-.modal-card{background:#131a30;border:1px solid #2a355b;border-radius:20px;padding:20px;width:100%;max-width:420px}
-.hidden{display:none!important}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Cairo',sans-serif;background:#000;color:#fff;overflow-x:hidden}
+#lockScreen{position:fixed;inset:0;background:radial-gradient(circle at center,#1a0a14 0%,#000 85%);display:flex;align-items:center;justify-content:center;z-index:9999;transition:.7s}
+.lockBox{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,77,109,.35);padding:40px 30px;border-radius:30px;text-align:center;width:380px;max-width:90%;box-shadow:0 0 80px rgba(255,77,109,.25)}
+.lockBox h1{font-size:30px} .lockBox p{opacity:.7;margin:8px 0 20px;font-size:14px}
+.lockBox input{width:100%;padding:15px;border-radius:50px;border:1px solid rgba(255,77,109,.4);background:rgba(0,0,0,.6);color:#fff;text-align:center;font-size:22px;letter-spacing:6px;outline:none}
+.lockBox button{width:100%;margin-top:15px;padding:14px;border-radius:50px;border:none;background:linear-gradient(90deg,#ff4d6d,#ff8fa3);color:#fff;font-weight:900;font-size:16px;cursor:pointer;box-shadow:0 10px 30px rgba(255,77,109,.4)}
+#main{display:none;opacity:0;transition:1s} #main.show{display:block;opacity:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;background:radial-gradient(circle at 50% 0%,#2a0a1a 0%,#000 75%);position:relative}
+.hero img.main{width:270px;height:270px;object-fit:cover;border-radius:50%;border:4px solid #ff4d6d;box-shadow:0 0 70px rgba(255,77,109,.7);margin-bottom:25px}
+.hero h1{font-size:44px;font-weight:900;line-height:1.1} .hero h1 span{background:linear-gradient(90deg,#ff4d6d,#ffb3c1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{margin-top:12px;opacity:.8}
+section{padding:50px 20px;max-width:800px;margin:auto}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,77,109,.12);border-radius:30px;padding:32px;margin-bottom:24px;backdrop-filter:blur(8px)}
+.card h2{color:#ff758f;margin-bottom:14px;font-size:22px}
+.letter{line-height:2.3;font-size:19px;color:#ffd6dd;font-family:'Amiri',serif}
+.letter b{color:#fff}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:18px}
+.gallery img{width:100%;height:340px;object-fit:cover;border-radius:22px;border:1px solid rgba(255,77,109,.2)}
+.final{text-align:center;padding:90px 20px;background:radial-gradient(circle at center,#1a0a14 0%,#000 85%)}
+.final h2{font-size:40px} .btn{display:inline-block;margin-top:28px;padding:17px 38px;border-radius:50px;background:linear-gradient(90deg,#ff4d6d,#ff8fa3);color:#fff;text-decoration:none;font-weight:900;box-shadow:0 15px 40px rgba(255,77,109,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+.music{margin-top:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:13px 20px;border-radius:50px;display:flex;align-items:center;gap:12px}
+.music button{width:42px;height:42px;border-radius:50%;border:none;background:#ff4d6d;color:#fff;cursor:pointer;font-size:18px}
 </style>
 </head>
 <body>
-<div class="top">
-<div class="logo"><i class="fa-solid fa-crown"></i> Marwan Store</div>
-<div style="display:flex;gap:8px"><button id="loginBtn" class="btn btn-ghost">دخول</button><button id="logoutBtn" class="btn btn-ghost hidden">خروج</button><button id="adminBtn" class="btn btn-p hidden">لوحة الأدمن</button></div>
+<div id="lockScreen">
+  <div class="lockBox">
+    <h1>🔒 لملك بس</h1>
+    <p>تاريخنا السري يا قلب مروان</p>
+    <input id="pass" type="password" placeholder="••••••••" inputmode="numeric">
+    <button onclick="unlock()">افتحي قلبي ❤️</button>
+    <p id="err" style="color:#ff4d6d;margin-top:12px;display:none">كلمة السر غلط يا روحي</p>
+    <p style="margin-top:12px;font-size:11px;opacity:.4">تلميح: 2482008</p>
+  </div>
 </div>
 
-<div class="hero">
-<div class="card"><p style="color:#8b9bff;font-weight:800;margin:0">⚡ أسرع متجر SMM في مصر</p><h1>زود متابعينك ومشاهداتك<br><span style="color:#c19aff">في ثواني وبأرخص سعر</span></h1><p style="color:var(--mut)">تيك توك - انستجرام - فيسبوك - يوتيوب - تليجرام</p></div>
-<div class="card" id="popular"><b>الأكثر طلباً</b></div>
+<div id="main">
+  <div class="hero">
+    <img class="main" src="malak1.jpg" alt="malak">
+    <h1><span>ملك غريب</span><br>❤️ مروان جاد</h1>
+    <p class="sub">بموت فيكي.. بعشقك.. مجنون بيكي من تالتة ابتدائي لحد دلوقتي</p>
+    <div class="music">
+      <button onclick="window.open('https://www.youtube.com/results?search_query=رامي+صبري+عارفه+لا+يمكن+امل+منك+يوم','_blank')">▶️</button>
+      <div style="text-align:right"><b>رامي صبري - عارفة</b><br><span style="font-size:11px;opacity:.6">لا يمكن امل منك يوم - اغنيتنا</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="card">
+      <h2>💘 يا ملك روحي</h2>
+      <div class="letter">
+        يا ملك.. <b>انا بموت فيكي، بعشقك عشق مجنون،</b> من وانا عيل في تالتة ابتدائي وانا قلبي مكتوب باسمك انتي وبس.<br><br>
+        انتي مش حب عادي، انتي ادمان، انتي النفس اللي بتنفسه. كل يوم بصحى وانا بعشقك اكتر من اليوم اللي قبله.<br><br>
+        بعدنا ورجعنا، اتخانقنا واتصالحنا، بس عمري ما بطلت اعشقك ولا ثانية. ده حب مزروع فيا من وانا صغير ومش هيتشال ابدا.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>❤️‍🔥 بعشقك بجنون</h2>
+      <div class="letter">
+        يا ملك يا روح قلبي..<br><br>
+        <b>بموت فيكي وربنا، بعشقك لدرجة الجنون،</b> بعشق عيونك، صوتك، ضحكتك، حتى غيرتك بموت فيها.<br><br>
+        انتي حبيبتي وعمري وحياتي كلها، مفيش بنت في الدنيا تخليني احس اللي بحسه معاكي.<br><br>
+        <b>انا مجنون بيكي، مجنون رسمي،</b> ولو قالولي اختار بين الدنيا وبينك، اختارك انتي وانا مغمض.<br><br>
+        كل حتة فيا بتنادي باسمك، قلبي بيدق ملك، عقلي بيفكر في ملك، انا كلي ملك.<br><br>
+        وحياة امي ما اقدر اعيش من غيرك، ولا يوم واحد. انتي ادماني اللي مش عايز اتعالج منه.<br><br>
+        <b>بحبك، بعشقك، بموت فيكي، يا ملك قلبي.</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📸 احنا الاتنين</h2>
+      <div class="gallery">
+        <img src="malak1.jpg">
+        <img src="malak2.jpg">
+      </div>
+      <p style="text-align:center;opacity:.6;margin-top:12px;font-size:13px">عيونا بتقول اللي لسانا مش قادر يقوله ❤️</p>
+    </div>
+
+    <div class="card">
+      <h2>♾️ وعد</h2>
+      <div class="letter" style="text-align:center">
+        وعد من مروان جاد لملك غريب..<br><br>
+        <b>هفضل اعشقك، هفضل اموت فيكي، هفضل مجنون بيكي،</b><br>
+        لحد اخر نفس فيا.<br><br>
+        القصة دي مش هتخلص، عشان احنا اللي كتبناها بقلبنا من واحنا عيال.
+      </div>
+    </div>
+  </section>
+
+  <div class="final">
+    <h2>تكملي معايا للأبد يا ملك؟</h2>
+    <p style="opacity:.7;margin-top:10px">لا يمكن امل منك يوم.. بموت فيكي</p>
+    <a class="btn" href="https://wa.me/201030980823?text=فتحت%20الموقع%20يا%20مروان%20❤️%20وانا%20بموت%20فيك%20وبعشقك%20ومش%20هسيبك%20ابدا" target="_blank">ابعتيلي بموت فيك ❤️‍🔥</a>
+    <p style="margin-top:35px;opacity:.25;font-size:11px">Made with عشق by Marwan Gad - 2482008</p>
+  </div>
 </div>
-
-<div class="filters"><div class="filter active" data-f="all">الكل</div><div class="filter" data-f="TikTok">تيك توك</div><div class="filter" data-f="Instagram">انستا</div><div class="filter" data-f="Facebook">فيسبوك</div><div class="filter" data-f="YouTube">يوتيوب</div><div class="filter" data-f="Telegram">تليجرام</div></div>
-
-<div id="authModal" class="modal hidden"><div class="modal-card"><h3>دخول Marwan Store</h3><input id="email" class="field" value="moragado88@gmail.com"><input id="password" type="password" class="field" value="Maro123456"><button id="doLogin" class="btn btn-p" style="width:100%;justify-content:center">دخول</button><button onclick="document.getElementById('authModal').classList.add('hidden')" class="btn btn-ghost" style="width:100%;margin-top:8px;justify-content:center">إغلاق</button><p id="authMsg" style="color:#8ea6ff"></p></div></div>
-
-<div id="adminPanel" class="hidden" style="max-width:1200px;margin:auto;padding:0 18px">
-<div class="card" style="border:2px solid #5b6bff;margin-top:14px"><h3>إضافة خدمة جديدة</h3><input id="s_name" class="field" placeholder="مثال: 1000 متابع تيك توك حقيقي"><select id="s_platform" class="field"><option>TikTok</option><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Telegram</option></select><input id="s_price" type="number" class="field" placeholder="السعر بالجنيه"><input id="s_desc" class="field" placeholder="وصف قصير"><button id="addService" class="btn btn-p" style="width:100%">نشر الخدمة الآن</button></div>
-<div class="card" style="margin-top:14px" id="ordersList">لا توجد طلبات بعد</div>
-</div>
-
-<div class="grid" id="services"><div class="card">جاري التحميل...</div></div>
 
 <script>
-const SUPABASE_URL='https://okikwjwccskqgququowa.supabase.co';
-const SUPABASE_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWd1cXVvd2EiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc2MjE4MDI2NywiZXhwIjoyMDc3NzU2MjY3fQ.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
-let all=[], cur='all';
-function render(){
- let list=cur==='all'?all:all.filter(s=>s.platform===cur);
- document.getElementById('services').innerHTML=list.map(s=>`<div class="service"><div style="display:flex;justify-content:space-between"><span class="platform">${s.platform}</span><b>${s.price} ج</b></div><h3 style="margin:8px 0">${s.name}</h3><p style="color:#8a94b5;font-size:13px">${s.description||'تنفيذ فوري - ضمان'}</p><input class="field" id="url_${s.id}" placeholder="رابط الحساب او البوست"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="field" type="number" id="q_${s.id}" value="1000"><div class="field" style="display:flex;align-items:center;justify-content:center;background:#151c33;font-weight:800"><span id="t_${s.id}">${s.price*1000}</span> ج</div></div><button class="btn btn-p" style="width:100%;justify-content:center" onclick="order('${s.id}',${s.price})">طلب الآن</button></div>`).join('')||'<div class="card" style="grid-column:1/-1;text-align:center">لا توجد خدمات - أضف من لوحة الأدمن فوق</div>';
- list.forEach(s=>{let q=document.getElementById('q_'+s.id); if(q) q.oninput=()=>{document.getElementById('t_'+s.id).innerText=(parseInt(q.value)||0)*s.price;}});
- document.getElementById('popular').innerHTML='<b>🔥 الأكثر طلباً</b>'+all.slice(0,3).map(s=>`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.06);border-radius:12px">${s.name}<br><small style="color:#8a94b5">${s.platform} - ${s.price}ج</small></div>`).join('');
+function unlock(){
+  let p=document.getElementById('pass').value.trim();
+  if(p==='2482008'){
+    document.getElementById('lockScreen').style.transform='scale(1.4)';
+    document.getElementById('lockScreen').style.opacity='0';
+    setTimeout(()=>{
+      document.getElementById('lockScreen').style.display='none';
+      let m=document.getElementById('main');
+      m.style.display='block';
+      setTimeout(()=>m.classList.add('show'),80);
+    },600);
+  }else{document.getElementById('err').style.display='block';}
 }
-async function load(){const {data}=await sb.from('services').select('*').eq('active',true).order('id',{ascending:false}); all=data||[]; render();}
-async function order(id,price){const {data:{user}}=await sb.auth.getUser(); if(!user){document.getElementById('authModal').classList.remove('hidden');return;} const url=document.getElementById('url_'+id).value; const qty=parseInt(document.getElementById('q_'+id).value)||1; if(!url) return alert('حط الرابط الأول'); await sb.from('orders').insert({user_id:user.id,service_id:id,target_url:url,quantity:qty,total_price:price*qty,status:'pending'}); alert('✅ تم الطلب - هيتنفذ خلال دقائق'); loadOrders();}
-async function check(){const {data:{user}}=await sb.auth.getUser(); if(user){document.getElementById('loginBtn').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden'); const {data:p}=await sb.from('profiles').select('role').eq('id',user.id).single(); if(p?.role==='admin') document.getElementById('adminBtn').classList.remove('hidden');}else{document.getElementById('loginBtn').classList.remove('hidden');}}
-async function loadOrders(){const {data}=await sb.from('orders').select('*,services(name)').order('id',{ascending:false}); document.getElementById('ordersList').innerHTML='<h3>الطلبات ('+(data?.length||0)+')</h3>'+(data||[]).map(o=>`<div style="padding:10px;border-bottom:1px solid #232a42;display:flex;justify-content:space-between;gap:8px"><div><b>${o.services?.name||''}</b><br><small style="color:#8a94b5;word-break:break-all">${o.target_url} - ${o.quantity} - ${o.total_price}ج - ${o.status}</small></div><select class="field" style="width:130px" onchange="upd('${o.id}',this.value)"><option value="pending" ${o.status==='pending'?'selected':''}>انتظار</option><option value="completed" ${o.status==='completed'?'selected':''}>مكتمل</option><option value="cancelled">ملغي</option></select></div>`).join('')||'لا يوجد طلبات';}
-async function upd(id,s){await sb.from('orders').update({status:s}).eq('id',id); loadOrders();}
-document.getElementById('loginBtn').onclick=()=>document.getElementById('authModal').classList.remove('hidden');
-document.getElementById('logoutBtn').onclick=async()=>{await sb.auth.signOut(); location.reload();};
-document.getElementById('adminBtn').onclick=()=>{document.getElementById('adminPanel').classList.toggle('hidden'); loadOrders();};
-document.getElementById('doLogin').onclick=async()=>{const e=document.getElementById('email').value,p=document.getElementById('password').value; const {error}=await sb.auth.signInWithPassword({email:e,password:p}); if(error) document.getElementById('authMsg').innerText=error.message; else{document.getElementById('authModal').classList.add('hidden'); check();}};
-document.getElementById('addService').onclick=async()=>{const n=document.getElementById('s_name').value, pl=document.getElementById('s_platform').value, pr=parseFloat(document.getElementById('s_price').value), d=document.getElementById('s_desc').value; if(!n||!pr) return alert('اكتب الاسم والسعر'); await sb.from('services').insert({name:n,platform:pl,price:pr,description:d,active:true}); alert('✅ اتنشرت'); load();};
-document.querySelectorAll('.filter').forEach(f=>f.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active')); f.classList.add('active'); cur=f.dataset.f; render();});
-check(); load();
+document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
 </script>
 </body>
 </html>
