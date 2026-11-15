@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MARO STORE — Dark Social Empire</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -11,82 +12,359 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;bac
 .noise{position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 .scan{position:fixed;inset:-100% 0 auto;height:100%;z-index:25;pointer-events:none;background:linear-gradient(transparent,#ff244808,transparent);animation:scan 8s linear infinite}
 @keyframes scan{to{transform:translateY(220vh)}}@keyframes pulse{0%,100%{opacity:.55;filter:blur(12px)}50%{opacity:1;filter:blur(20px)}}@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-17px) rotate(4deg)}}@keyframes flicker{0%,18%,22%,25%,53%,57%,100%{opacity:1}20%,24%,55%{opacity:.45}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes glitch{0%,90%,100%{transform:translate(0)}92%{transform:translate(3px,-2px)}94%{transform:translate(-3px,2px)}96%{transform:translate(2px,1px)}}
-.wrap{width:min(1200px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#08090ee8;backdrop-filter:blur(18px);border-bottom:1px solid #ff244833}.nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px;font:900 23px Orbitron,Cairo;letter-spacing:2px}.brand-mark{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:white;background:linear-gradient(145deg,#ff3159,#5d0b24);box-shadow:0 0 24px #ff244866,inset 0 0 12px #fff3}.brand span:last-child{color:var(--red);text-shadow:0 0 18px #ff244877}.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#151923;color:var(--txt);border-radius:11px;padding:10px 15px;font-family:Cairo;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--red);box-shadow:0 0 18px #ff244833}.btn.primary{border:0;background:linear-gradient(110deg,#ff2448,#a20e32);box-shadow:0 0 22px #ff244833}.btn.cyan{border-color:#65f3ff66;color:var(--cyan);background:#0b1a20}.hero{min-height:530px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:65px 0 40px}.kicker{font:700 11px Orbitron;color:var(--cyan);letter-spacing:3px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.14;margin:12px 0 18px;font-weight:900;animation:flicker 7s infinite}.hero h1 em{font-style:normal;color:var(--red);text-shadow:0 0 22px #ff244899}.hero p{color:var(--muted);line-height:2;font-size:15px;max-width:650px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hero-art{min-height:360px;position:relative;display:grid;place-items:center}.sigil{width:min(300px,70vw);aspect-ratio:1;border:1px solid #ff244866;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 45px #ff244822,inset 0 0 55px #ff244811;animation:float 5s ease-in-out infinite}.sigil:before,.sigil:after{content:"";position:absolute;inset:18px;border:1px dashed #65f3ff66;border-radius:50%;animation:spin 25s linear infinite}.sigil:after{inset:38px;border-color:#ff244899;animation-direction:reverse;animation-duration:17s}.sigil-core{font:900 76px Orbitron;color:var(--red);text-shadow:0 0 20px #ff2448,0 0 60px #ff2448;animation:glitch 5s infinite}.orb{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px var(--cyan);animation:pulse 3s infinite}.orb.one{top:12%;right:12%}.orb.two{bottom:16%;left:5%;background:var(--red);box-shadow:0 0 20px var(--red)}.orb.three{top:65%;right:4%;width:7px;height:7px}
-.photo-box{position:absolute;bottom:2px;right:0;background:#10131bdd;border:1px solid #ff244855;border-radius:14px;padding:9px;display:flex;align-items:center;gap:10px;max-width:210px}.photo-box img{width:47px;height:47px;object-fit:cover;border-radius:50%;border:2px solid var(--red);background:#222}.photo-box b{display:block;font-size:13px}.photo-box small{color:var(--muted);font-size:10px}
+.wrap{width:min(1200px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#08090ee8;backdrop-filter:blur(18px);border-bottom:1px solid #ff244833}.nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px;font:900 23px Orbitron,Cairo;letter-spacing:2px}.brand-mark{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:white;background:linear-gradient(145deg,#ff3159,#5d0b24);box-shadow:0 0 24px #ff244866,inset 0 0 12px #fff3}.brand span:last-child{color:var(--red);text-shadow:0 0 18px #ff244877}.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#151923;color:var(--txt);border-radius:11px;padding:10px 15px;font-family:Cairo;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--red);box-shadow:0 0 18px #ff244833}.btn.primary{border:0;background:linear-gradient(110deg,#ff2448,#a20e32);box-shadow:0 0 22px #ff244833}.btn.cyan{border-color:#65f3ff66;color:var(--cyan);background:#0b1a20}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.hero{min-height:530px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:65px 0 40px}.kicker{font:700 11px Orbitron;color:var(--cyan);letter-spacing:3px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.14;margin:12px 0 18px;font-weight:900;animation:flicker 7s infinite}.hero h1 em{font-style:normal;color:var(--red);text-shadow:0 0 22px #ff244899}.hero p{color:var(--muted);line-height:2;font-size:15px;max-width:650px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hero-art{min-height:360px;position:relative;display:grid;place-items:center}.sigil{width:min(300px,70vw);aspect-ratio:1;border:1px solid #ff244866;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 45px #ff244822,inset 0 0 55px #ff244811;animation:float 5s ease-in-out infinite}.sigil:before,.sigil:after{content:"";position:absolute;inset:18px;border:1px dashed #65f3ff66;border-radius:50%;animation:spin 25s linear infinite}.sigil:after{inset:38px;border-color:#ff244899;animation-direction:reverse;animation-duration:17s}.sigil-core{font:900 76px Orbitron;color:var(--red);text-shadow:0 0 20px #ff2448,0 0 60px #ff2448;animation:glitch 5s infinite}.orb{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px var(--cyan);animation:pulse 3s infinite}.orb.one{top:12%;right:12%}.orb.two{bottom:16%;left:5%;background:var(--red);box-shadow:0 0 20px var(--red)}.orb.three{top:65%;right:4%;width:7px;height:7px}
+.photo-box{position:absolute;bottom:2px;right:0;background:#10131bdd;border:1px solid #ff244855;border-radius:14px;padding:9px;display:flex;align-items:center;gap:10px;max-width:230px}.photo-box img{width:47px;height:47px;object-fit:cover;border-radius:50%;border:2px solid var(--red);background:#222}.photo-box b{display:block;font-size:13px}.photo-box small{color:var(--muted);font-size:10px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 38px}.stat{padding:17px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#151821,#0c0e14);text-align:center}.stat strong{font:900 25px Orbitron;color:var(--red);display:block;text-shadow:0 0 15px #ff244866}.stat small{color:var(--muted)}
 .section{padding:26px 0}.section-title{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:17px}.section-title h2{font-size:27px;margin:0}.section-title p{margin:4px 0 0;color:var(--muted);font-size:12px}.title-mark{color:var(--red);font:700 11px Orbitron;letter-spacing:2px}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.input{background:#0c0e15;color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:12px 14px;outline:none;font-family:Cairo;min-width:0}.input:focus{border-color:var(--red);box-shadow:0 0 15px #ff244822}.search{flex:1;min-width:190px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#121620;border:1px solid var(--line);color:#c2c7d3;padding:8px 12px;border-radius:30px;font:700 11px Cairo}.chip.active{background:#4a1020;border-color:var(--red);color:#fff;box-shadow:0 0 15px #ff244833}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{position:relative;padding:18px;border:1px solid #2b2f3b;border-radius:17px;background:linear-gradient(150deg,#151821,#0b0d13);overflow:hidden;transition:.25s}.service:before{content:"";position:absolute;top:0;right:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),var(--cyan),transparent);transform:translateX(100%);transition:.6s}.service:hover{transform:translateY(-5px);border-color:#ff315966;box-shadow:0 18px 40px #0009,0 0 20px #ff244811}.service:hover:before{transform:translateX(0)}.service-head{display:flex;align-items:center;justify-content:space-between}.icon{width:45px;height:45px;display:grid;place-items:center;border-radius:13px;background:#28121c;color:var(--red);font-size:22px;box-shadow:inset 0 0 14px #ff244822}.platform{font-size:10px;color:var(--cyan);border:1px solid #65f3ff44;padding:4px 8px;border-radius:20px}.service h3{margin:13px 0 3px;font-size:17px}.service p{color:var(--muted);font-size:11px;line-height:1.8;min-height:38px}.price{color:var(--gold);font-weight:900;margin:12px 0;font-size:14px}.price small{font-weight:500;color:var(--muted)}.service .btn{width:100%}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.input{background:#0c0e15;color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:12px 14px;outline:none;font-family:Cairo;min-width:0;width:100%}.input:focus{border-color:var(--red);box-shadow:0 0 15px #ff244822}.search{flex:1;min-width:190px;width:auto}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#121620;border:1px solid var(--line);color:#c2c7d3;padding:8px 12px;border-radius:30px;font:700 11px Cairo;cursor:pointer}.chip.active{background:#4a1020;border-color:var(--red);color:#fff;box-shadow:0 0 15px #ff244833}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{position:relative;padding:18px;border:1px solid #2b2f3b;border-radius:17px;background:linear-gradient(150deg,#171b27,#0b0d13);overflow:hidden;transition:.25s;box-shadow:inset 0 1px #ffffff08}.service:before{content:"";position:absolute;top:0;right:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),var(--cyan),transparent);transform:translateX(100%);transition:.6s}.service:hover{transform:translateY(-5px);border-color:#ff315966;box-shadow:0 18px 40px #0009,0 0 20px #ff244822}.service:hover:before{transform:translateX(0)}.service-head{display:flex;align-items:center;justify-content:space-between}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#381323,#171b2a);color:var(--red);font-size:23px;box-shadow:inset 0 0 14px #ff244822;border:1px solid #ff244833}.platform{font-size:10px;color:var(--cyan);border:1px solid #65f3ff44;padding:5px 9px;border-radius:20px;background:#65f3ff09}.service h3{margin:13px 0 3px;font-size:17px}.service p{color:var(--muted);font-size:11px;line-height:1.8;min-height:38px}.price{color:var(--gold);font-weight:900;margin:12px 0;font-size:16px}.price small{font-weight:500;color:var(--muted);font-size:10px}.warranty{display:inline-block;background:#172b27;border:1px solid #54e6aa44;color:#9ff2cf;padding:5px 9px;border-radius:20px;font-size:10px;margin:3px 0 12px}.warranty.none{background:#332719;border-color:#765727;color:#f5d99d}.service .btn{width:100%}
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.how article{padding:18px;border-radius:15px;background:#11151d;border:1px solid var(--line)}.how b{color:var(--cyan)}.how p{font-size:12px;color:var(--muted);line-height:1.8}
 .footer{border-top:1px solid var(--line);margin-top:45px;padding:28px 0;color:var(--muted);text-align:center;font-size:12px}.footer strong{color:var(--red)}
-.modal-bg{position:fixed;inset:0;background:#000c;z-index:60;display:grid;place-items:center;padding:14px;backdrop-filter:blur(7px)}.modal{width:min(600px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#171a24,#0a0c12);border:1px solid #ff244866;border-radius:20px;padding:21px;box-shadow:0 20px 80px #000}.modal h3{margin:0 0 10px;font-size:22px}.close{float:left;background:#292d39;color:white;border:0;border-radius:8px;padding:6px 10px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.full{grid-column:1/-1}.muted{color:var(--muted);font-size:12px;line-height:1.8}.notice{padding:12px;border-radius:11px;background:#172b27;border:1px solid #54e6aa44;color:#a9f5d2;margin:12px 0;font-size:12px}.warn{background:#332719;border-color:#f2c46d55;color:#f8dba5}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tab{background:#202431;color:#dce0e8;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font:700 12px Cairo}.tab.active{background:#481120;border-color:var(--red)}.tablebox{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:right;padding:10px;border-bottom:1px solid var(--line);font-size:12px}th{color:var(--cyan)}.empty{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}.hidden{display:none!important}.admin-note{padding:10px;background:#261e13;border:1px solid #765727;color:#f5d99d;border-radius:10px;font-size:11px;margin:10px 0}
-@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:40px}.hero-art{min-height:320px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}.nav{padding:10px 0}.brand{font-size:17px}.nav-actions .btn{font-size:11px;padding:8px 10px}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero h1{font-size:43px}}
+.modal-bg{position:fixed;inset:0;background:#000c;z-index:60;display:grid;place-items:center;padding:14px;backdrop-filter:blur(7px)}.modal{width:min(680px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#171a24,#0a0c12);border:1px solid #ff244866;border-radius:20px;padding:21px;box-shadow:0 20px 80px #000}.modal h3{margin:0 0 10px;font-size:22px}.close{float:left;background:#292d39;color:white;border:0;border-radius:8px;padding:6px 10px;cursor:pointer}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.full{grid-column:1/-1}.muted{color:var(--muted);font-size:12px;line-height:1.8}.notice{padding:12px;border-radius:11px;background:#172b27;border:1px solid #54e6aa44;color:#a9f5d2;margin:12px 0;font-size:12px}.warn{background:#332719;border-color:#f2c46d55;color:#f8dba5}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tab{background:#202431;color:#dce0e8;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font:700 12px Cairo;cursor:pointer}.tab.active{background:#481120;border-color:var(--red)}.tablebox{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:right;padding:10px;border-bottom:1px solid var(--line);font-size:12px;vertical-align:middle}th{color:var(--cyan)}.empty{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}.hidden{display:none!important}.admin-note{padding:10px;background:#261e13;border:1px solid #765727;color:#f5d99d;border-radius:10px;font-size:11px;margin:10px 0}.admin-actions{display:flex;gap:6px;flex-wrap:wrap}.small-btn{padding:6px 9px;font-size:11px}.total-box{padding:13px;border:1px solid #f2c46d55;background:#2b2112;border-radius:12px;margin:12px 0;color:var(--gold);font-weight:900}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:40px}.hero-art{min-height:320px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}.nav{padding:10px 0}.brand{font-size:17px}.nav-actions .btn{font-size:11px;padding:8px 10px}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero h1{font-size:43px}.section-title h2{font-size:22px}}
+
+/* MARO SMM PANEL — compact service cards */
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.service{padding:13px;border-radius:13px;background:linear-gradient(145deg,#151a25,#0b0e15);box-shadow:inset 0 1px #ffffff08}
+.service-head{gap:8px}
+.icon{width:36px;height:36px;border-radius:10px;font-size:18px}
+.platform{font-size:9px;padding:4px 8px;white-space:nowrap}
+.service h3{font-size:14px;line-height:1.5;margin:9px 0 2px;min-height:42px}
+.service p{font-size:10px;line-height:1.55;min-height:31px;margin:3px 0;color:#929bad;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-size:14px;margin:8px 0 6px}
+.price small{font-size:9px}
+.warranty{font-size:9px;padding:3px 7px;margin:2px 0 8px}
+.service .btn{padding:8px 9px;border-radius:9px;font-size:11px}
+.service:hover{transform:translateY(-3px)}
+.toolbar{align-items:center}
+.chips{gap:6px}
+.chip{padding:7px 10px;font-size:10px}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+@media(max-width:560px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .service{padding:10px;border-radius:12px}
+  .service h3{font-size:12px;min-height:38px;line-height:1.45}
+  .service p{font-size:9px;min-height:28px}
+  .icon{width:31px;height:31px;font-size:16px;border-radius:9px}
+  .platform{font-size:8px;padding:3px 6px}
+  .price{font-size:12px;margin:7px 0 5px}
+  .price small{font-size:8px}
+  .warranty{font-size:8px;padding:3px 6px;margin-bottom:7px}
+  .service .btn{font-size:10px;padding:7px 5px}
+}
+@media(max-width:350px){.grid{grid-template-columns:1fr}}
+
 </style>
 </head>
-<body><div class="noise"></div><div class="scan"></div>
-<header class="topbar"><div class="wrap nav"><div class="brand"><div class="brand-mark">M</div><span>MARO <span>STORE</span></span></div><div class="nav-actions"><button class="btn" id="accountBtn">دخول / حسابي</button><button class="btn cyan" id="walletBtn">رصيدي: <span id="balance">0</span> ج.م</button><button class="btn primary" id="adminBtn">ADMIN</button></div></div></header>
+<body>
+<div class="noise"></div><div class="scan"></div>
+<header class="topbar"><div class="wrap nav">
+  <div class="brand"><div class="brand-mark">M</div><span>MARO <span>STORE</span></span></div>
+  <div class="nav-actions">
+    <button class="btn" id="accountBtn">دخول / حسابي</button>
+    <button class="btn cyan" id="walletBtn">رصيدي: <span id="balance">0.00</span> ج.م</button>
+    <button class="btn primary" id="adminBtn">ADMIN</button>
+  </div>
+</div></header>
 <main class="wrap">
-<section class="hero"><div><div class="kicker">DARK SOCIAL EMPIRE / 2026</div><h1>ادخل عالم<br><em>MARO STORE</em></h1><p>منصة خدمات رقمية بتصميم سايبر مظلم وتأثيرات متحركة. استكشف خدمات منصات التواصل، اختار خدمتك، وتابع تفاصيل طلبك من حسابك.</p><div class="hero-actions"><button class="btn primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">استكشف الخدمات ⟵</button><button class="btn cyan" onclick="openAccount()">حسابي ورصيدي</button></div></div>
-<div class="hero-art"><div class="sigil"><div class="sigil-core">M</div><i class="orb one"></i><i class="orb two"></i><i class="orb three"></i></div><div class="photo-box"><img id="ownerPhoto" src="https://placehold.co/100x100/17121a/ff3159?text=M" alt="صورة صاحب المتجر"><div><b id="ownerName">MARO / MARWAN GAD</b><small>OWNER • STORE CREATOR</small></div></div></div></section>
-<div class="stats"><div class="stat"><strong id="visitors">0</strong><small>زيارة تجريبية محلية</small></div><div class="stat"><strong id="serviceCount">0</strong><small>خدمة معروضة</small></div><div class="stat"><strong>24H</strong><small>بدء المتابعة المستهدف</small></div><div class="stat"><strong>★★★★★</strong><small>تصميم خمس نجوم</small></div></div>
-<section class="section" id="services"><div class="section-title"><div><h2>مكتبة الخدمات</h2><p>كل المنصات والخدمات في مكان واحد</p></div><span class="title-mark">SELECT YOUR SERVICE</span></div><div class="toolbar"><input class="input search" id="search" placeholder="ابحث باسم الخدمة أو المنصة..."><div class="chips" id="filters"></div></div><div class="grid" id="serviceGrid"></div></section>
-<section class="section"><div class="section-title"><div><h2>تجربة الطلب</h2><p>خطوات سهلة وواضحة</p></div><span class="title-mark">HOW IT WORKS</span></div><div class="how"><article><b>01 / اشحن رصيدك</b><p>قدّم طلب شحن رصيد، والإدارة تراجعه وتضيفه بعد التأكد من الدفع.</p></article><article><b>02 / اختار الخدمة</b><p>حدد الكمية والرابط المطلوب، وسيظهر لك السعر قبل تأكيد الطلب.</p></article><article><b>03 / تابع طلبك</b><p>تظهر حالة الطلب في حسابك. بدء المتابعة المستهدف خلال 24 ساعة حسب الخدمة.</p></article></div></section>
-</main><footer class="footer"><div class="wrap">POWERED BY <strong>MARO STORE</strong> • DIGITAL SERVICES</div></footer>
+<section class="hero">
+  <div><div class="kicker">DARK SOCIAL EMPIRE / 2026</div><h1>ادخل عالم<br><em>MARO STORE</em></h1>
+    <p>منصة خدمات رقمية بتصميم سايبر مظلم. استكشف الخدمات، راجع السعر والضمان، وقدّم طلبك وتابع حالته من حسابك.</p>
+    <div class="hero-actions"><button class="btn primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">استكشف الخدمات ⟵</button><button class="btn cyan" onclick="openAccount()">حسابي ورصيدي</button></div>
+  </div>
+  <div class="hero-art"><div class="sigil"><div class="sigil-core">M</div><i class="orb one"></i><i class="orb two"></i><i class="orb three"></i></div>
+    <div class="photo-box"><img id="ownerPhoto" src="https://placehold.co/100x100/17121a/ff3159?text=M" alt="صورة صاحب المتجر"><div><b id="ownerName">MARO / MARWAN GAD</b><small>OWNER • STORE CREATOR</small></div></div>
+  </div>
+</section>
+<div class="stats">
+  <div class="stat"><strong id="visitors">0</strong><small>زيارة على هذا المتصفح</small></div>
+  <div class="stat"><strong id="serviceCount">0</strong><small>خدمة معروضة</small></div>
+  <div class="stat"><strong>24H</strong><small>وقت متابعة مستهدف</small></div>
+  <div class="stat"><strong>★★★★★</strong><small>MARO STORE</small></div>
+</div>
+<section class="section" id="services">
+  <div class="section-title"><div><h2>مكتبة الخدمات</h2><p>اختار المنصة والخدمة المناسبة</p></div><span class="title-mark">SELECT YOUR SERVICE</span></div>
+  <div class="toolbar"><input class="input search" id="search" placeholder="ابحث باسم الخدمة أو المنصة..."><div class="chips" id="filters"></div></div>
+  <div class="grid" id="serviceGrid"></div>
+</section>
+<section class="section">
+  <div class="section-title"><div><h2>طريقة الطلب</h2><p>خطوات سهلة وواضحة</p></div><span class="title-mark">HOW IT WORKS</span></div>
+  <div class="how">
+    <article><b>01 / حسابك ورصيدك</b><p>أنشئ حسابًا تجريبيًا على هذا المتصفح، ثم أرسل طلب شحن رصيد للمراجعة.</p></article>
+    <article><b>02 / اختار الخدمة</b><p>حدد الكمية والرابط. يظهر لك الإجمالي قبل تأكيد الطلب.</p></article>
+    <article><b>03 / تابع الطلب</b><p>تظهر حالة الطلب في حسابك، ويمكن للإدارة تحديثها من لوحة ADMIN.</p></article>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap">POWERED BY <strong>MARO STORE</strong> • DIGITAL SERVICES</div></footer>
 <div class="modal-bg hidden" id="modalBg"><div class="modal"><button class="close" id="close">✕</button><div id="modalContent"></div></div></div>
 <script>
-const $=id=>document.getElementById(id), KEY='maro_dark_store_v1';
+'use strict';
+const $=id=>document.getElementById(id);
+const KEY='maro_dark_store_v1';
+const SERVICES_VERSION=4;
+const ADMIN_USER='MARWAN GAD';
+const ADMIN_PASS='CHANGE_THIS_PASSWORD'; // غيّر كلمة المرور قبل النشر
+
+function svc(id,platform,name,icon,price,description,warranty='اسأل عن الضمان',unitSize=1000,unitLabel='لكل 1000',min=100,mode='perUnit'){
+  return {id,platform,name,icon,price,description,warranty,unitSize,unitLabel,min,mode,active:true};
+}
 const defaultServices=[
-['TikToنمتابعون تيك توك','♬','متابعون للحسابات مصري 265ب'],['TikTok','75إعجابات تيك توك','♥','تفاعلات على الفيديوهات',''],['TikTok','مشاهدات تيك توك','▶','مشاهدات الفيديوهات','حسب الطلب'],['TikTok','تعليقات تيك توك','✎','تعليقات على الفيديوهات','حسب الطلب'],['TikTok','مشاركات تيك توك','↗','مشاركات الفيديوهات','حسب الطلب'],['TikTok','حفظ الفيديوهات','▣','حفظ المحتوى','حسب الطلب'],['TikTok','مشاهدات البث المباشر','◉','خدمات البث المباشر','حسب الطلب'],
-['Instagram','متابعون إنستجرام','◎','متابعون للحسابات','حسب الطلب'],['Instagram','إعجابات إنستجرام','♥','إعجابات المنشورات والريلز','حسب الطلب'],['Instagram','مشاهدات ريلز','▶','مشاهدات الفيديوهات القصيرة','حسب الطلب'],['Instagram','تعليقات إنستجرام','✎','تعليقات على المنشورات','حسب الطلب'],['Instagram','حفظ المنشورات','▣','حفظ المحتوى','حسب الطلب'],['Instagram','مشاركات إنستجرام','↗','مشاركات المنشورات','حسب الطلب'],['Instagram','مشاهدات ستوري','◉','مشاهدات القصص','حسب الطلب'],
-['Facebook','متابعو الصفحات','f','متابعون للصفحات','حسب الطلب'],['Facebook','إعجابات الصفحات','♥','إعجابات الصفحات','حسب الطلب'],['Facebook','تفاعلات المنشورات','☺','لايك وريأكت للمنشورات','حسب الطلب'],['Facebook','مشاهدات الفيديو','▶','مشاهدات الفيديوهات','حسب الطلب'],['Facebook','تعليقات فيسبوك','✎','تعليقات المنشورات','حسب الطلب'],['Facebook','مشاركات فيسبوك','↗','مشاركة المنشورات','حسب الطلب'],['Facebook','مشاهدات البث','◉','مشاهدات البث المباشر','حسب الطلب'],
-['YouTube','مشتركو يوتيوب','▶','اشتراكات القنوات','حسب الطلب'],['YouTube','مشاهدات يوتيوب','◉','مشاهدات الفيديوهات','حسب الطلب'],['YouTube','إعجابات يوتيوب','♥','إعجابات الفيديوهات','حسب الطلب'],['YouTube','تعليقات يوتيوب','✎','تعليقات الفيديوهات','حسب الطلب'],['YouTube','ساعات مشاهدة','◷','استفسر عن التفاصيل','حسب الطلب'],
-['Telegram','أعضاء قنوات تيليجرام','➤','أعضاء القنوات والمجموعات','حسب الطلب'],['Telegram','مشاهدات تيليجرام','◉','مشاهدات المنشورات','حسب الطلب'],['Telegram','تفاعلات تيليجرام','♥','تفاعلات المنشورات','حسب الطلب'],['Telegram','مشتركو بوتات','⌘','خدمات البوتات','حسب الطلب'],
-['Snapchat','متابعو سناب شات','👻','متابعون للحساب','حسب الطلب'],['Snapchat','مشاهدات سناب','◉','مشاهدات القصص','حسب الطلب'],['Snapchat','تفاعلات سناب','♥','تفاعلات ومشاهدات','حسب الطلب'],
-['X / Twitter','متابعو X','𝕏','متابعون للحساب','حسب الطلب'],['X / Twitter','إعجابات X','♥','إعجابات المنشورات','حسب الطلب'],['X / Twitter','مشاهدات X','◉','مشاهدات المنشورات','حسب الطلب'],['X / Twitter','إعادة نشر','↗','إعادة نشر المنشورات','حسب الطلب'],
-['WhatsApp','أعضاء قنوات واتساب','◉','أعضاء القنوات','حسب الطلب'],['WhatsApp','تفاعلات واتساب','♥','تفاعلات المنشورات','حسب الطلب'],['WhatsApp','تصويتات واتساب','☑','تصويتات واستطلاعات','حسب الطلب'],
-['Kwai','متابعو كواي','K','متابعون للحساب','حسب الطلب'],['Kwai','إعجابات كواي','♥','إعجابات الفيديوهات','حسب الطلب'],['Kwai','مشاهدات كواي','▶','مشاهدات الفيديوهات','حسب الطلب'],['Kwai','تعليقات كواي','✎','تعليقات الفيديوهات','حسب الطلب'],
-['Threads','متابعو ثريدز','＠','متابعون للحساب','حسب الطلب'],['Threads','إعجابات ثريدز','♥','إعجابات المنشورات','حسب الطلب'],['Twitch','متابعو تويتش','◉','متابعون للقناة','حسب الطلب'],['Twitch','مشاهدات تويتش','▶','مشاهدات البث','حسب الطلب'],['Discord','أعضاء ديسكورد','⌘','أعضاء السيرفرات','حسب الطلب'],['Pinterest','متابعو بنترست','P','متابعون للحساب','حسب الطلب'],['Pinterest','حفظ بنترست','▣','حفظ الصور والمنشورات','حسب الطلب'],['LinkedIn','متابعو لينكدإن','in','متابعون للصفحات','حسب الطلب']
-].map((x,i)=>({id:'s'+i,platform:x[0],name:x[1],icon:x[2],description:x[3],price:null,min:100,active:true}));
+svc('d-tiktok-eg-follow','TikTok','1000 متابع تيك توك مصري','♬',260,'متابعون مصريون للحساب','اسأل عن الضمان'),
+svc('d-tiktok-for-follow','TikTok','1000 متابع تيك توك أجانب','♬',125,'متابعون أجانب للحساب','ضمان 360 يوم'),
+svc('d-tiktok-eg-like','TikTok','1000 لايك تيك توك مصري','♥',75,'إعجابات مصرية للفيديوهات','ضمان مدى الحياة'),
+svc('d-tiktok-for-like','TikTok','1000 لايك تيك توك أجانب','♥',35,'إعجابات أجنبية للفيديوهات','ضمان 60 يوم'),
+svc('d-tiktok-fake-like','TikTok','1000 لايك تيك توك وهمي','♥',20,'إعجابات غير حقيقية','بدون ضمان'),
+svc('d-tiktok-real-view','TikTok','1000 مشاهدة تيك توك حقيقية','▶',9,'مشاهدات للفيديوهات','بدون نقص'),
+svc('d-tiktok-fake-view','TikTok','1000 مشاهدة تيك توك وهمية','▶',3,'مشاهدات للفيديوهات','بدون ضمان'),
+svc('d-tiktok-comment','TikTok','100 تعليق تيك توك مصري','✎',35,'تعليقات للفيديوهات','اسأل عن الضمان',100,'لكل 100 تعليق',100),
+svc('d-tiktok-save','TikTok','1000 حفظ تيك توك','▣',5,'حفظ الفيديوهات','اسأل عن الضمان'),
+svc('d-tiktok-share','TikTok','1000 مشاركة تيك توك','↗',5,'مشاركة الفيديوهات','اسأل عن الضمان'),
+svc('d-tiktok-repost','TikTok','1000 إعادة نشر تيك توك','⟳',15,'إعادة نشر الفيديوهات','اسأل عن الضمان'),
+svc('d-tiktok-live','TikTok','خدمات لايف تيك توك','◉',35,'خدمات مرتبطة بالبث المباشر','اسأل عن التفاصيل'),
+svc('d-inst-follow','Instagram','1000 متابع إنستجرام','◎',80,'متابعون للحساب','اسأل عن الضمان'),
+svc('d-inst-like','Instagram','1000 لايك إنستجرام','♥',45,'إعجابات المنشورات','بدون نقص'),
+svc('d-inst-repost','Instagram','1000 إعادة نشر إنستجرام','↗',45,'إعادة نشر المحتوى','اسأل عن الضمان'),
+svc('d-inst-view','Instagram','1000 مشاهدة إنستجرام','▶',8,'مشاهدات المحتوى','اسأل عن الضمان'),
+svc('d-inst-share','Instagram','1000 مشاركة إنستجرام','↗',8,'مشاركات المنشورات','اسأل عن الضمان'),
+svc('d-inst-save','Instagram','1000 حفظ إنستجرام','▣',8,'حفظ المنشورات','اسأل عن الضمان'),
+svc('d-fb-follow','Facebook','1000 متابع فيسبوك أجانب','f',85,'متابعون للصفحات والحسابات','اسأل عن الضمان'),
+svc('d-fb-reaction','Facebook','1000 تفاعل فيسبوك','♥',50,'تفاعلات المنشورات','اسأل عن الضمان'),
+svc('d-fb-like','Facebook','1000 إعجاب فيسبوك','👍',45,'إعجابات المنشورات','اسأل عن الضمان'),
+svc('d-fb-comment','Facebook','تعليقات فيسبوك','✎',null,'تعليقات للمنشورات','اسأل عن السعر'),
+svc('d-fb-share','Facebook','مشاركات فيسبوك','↗',null,'مشاركة المنشورات','اسأل عن السعر'),
+svc('d-fb-view','Facebook','مشاهدات ريلز فيسبوك','▶',null,'مشاهدات الفيديوهات القصيرة','اسأل عن السعر'),
+svc('d-youtube-sub','YouTube','1000 مشترك يوتيوب أجانب','▶',25,'مشتركون للقناة','اسأل عن الضمان'),
+svc('d-youtube-like','YouTube','1000 لايك يوتيوب','♥',55,'إعجابات الفيديوهات','ضمان مدى الحياة'),
+svc('d-youtube-adview','YouTube','1000 مشاهدة يوتيوب إعلانات','◉',35,'مشاهدات من حملات ترويجية','اسأل عن الضمان'),
+svc('d-youtube-hours','YouTube','ساعات مشاهدة يوتيوب','◷',null,'ساعات مشاهدة للقناة','اسأل عن السعر'),
+svc('d-youtube-comment','YouTube','تعليقات يوتيوب','✎',null,'تعليقات الفيديوهات','اسأل عن السعر'),
+svc('d-kwai-follow','Kwai','1000 متابع كواي','K',80,'متابعون للحساب','اسأل عن الضمان'),
+svc('d-kwai-like','Kwai','1000 لايك كواي','♥',35,'إعجابات الفيديوهات','اسأل عن الضمان'),
+svc('d-kwai-view','Kwai','1000 مشاهدة كواي','▶',25,'مشاهدات الفيديوهات','اسأل عن الضمان'),
+svc('d-x-follow','X / Twitter','1000 متابع X','𝕏',80,'متابعون للحساب','اسأل عن الضمان'),
+svc('d-x-view','X / Twitter','1000 مشاهدة X','◉',12,'مشاهدات المنشورات','اسأل عن الضمان'),
+svc('d-x-repost','X / Twitter','1000 إعادة نشر X','↗',85,'إعادة نشر المنشورات','اسأل عن الضمان'),
+svc('d-wa-channel','WhatsApp','1000 عضو قناة واتساب','◉',45,'أعضاء القنوات','بدون ضمان'),
+svc('d-wa-reaction','WhatsApp','1000 تفاعل واتساب','♥',15,'تفاعلات المنشورات','اسأل عن الضمان'),
+svc('d-wa-marketing','WhatsApp','تسويق قناة واتساب','📢',80,'حملة تسويق للقناة','حسب تفاصيل الحملة',1,'للحملة',1,'fixed'),
+svc('d-tg-member','Telegram','1000 عضو تيليجرام','➤',50,'أعضاء القنوات والمجموعات','اسأل عن الضمان'),
+svc('d-tg-reaction','Telegram','1000 تفاعل تيليجرام','♥',15,'تفاعلات المنشورات','اسأل عن الضمان'),
+svc('d-chatgpt','اشتراكات رقمية','اشتراك ChatGPT شهري','✦',250,'اشتراك لمدة شهر','شهر واحد',1,'للاشتراك',1,'fixed'),
+svc('d-capcut','اشتراكات رقمية','اشتراك CapCut لمدة 7 أيام','✂',80,'اشتراك لمدة سبعة أيام','7 أيام',1,'للاشتراك',1,'fixed'),
+svc('d-canva','اشتراكات رقمية','اشتراك Canva لمدة 3 سنوات','🎨',55,'اشتراك لمدة ثلاث سنوات','3 سنوات',1,'للاشتراك',1,'fixed'),
+svc('d-pubg-60','PUBG','60 UC ببجي','🎮',70,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-pubg-325','PUBG','325 UC ببجي','🎮',300,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-pubg-660','PUBG','660 UC ببجي','🎮',600,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-pubg-1800','PUBG','1800 UC ببجي','🎮',1500,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-pubg-3850','PUBG','3850 UC ببجي','🎮',3000,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-pubg-8100','PUBG','8100 UC ببجي','🎮',6000,'شحن عن طريق ID','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-ff-110','Free Fire','110 جوهرة فري فاير','🔥',70,'شحن جواهر','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-ff-300','Free Fire','300 جوهرة فري فاير','🔥',200,'شحن جواهر','شحن باقة',1,'للباقة',1,'fixed'),
+svc('d-ff-530','Free Fire','530 جوهرة فري فاير','🔥',320,'شحن جواهر','شحن باقة',1,'للباقة',1,'fixed')
+];
+
+function freshState(){return {services:defaultServices.map(x=>({...x})),orders:[],topups:[],balance:0,visits:0,photo:'',owner:'MARO / MARWAN GAD',servicesVersion:SERVICES_VERSION};}
+function load(){
+  let data;try{data=JSON.parse(localStorage.getItem(KEY))}catch(e){data=null}
+  if(!data||typeof data!=='object')return freshState();
+  const oldServices=Array.isArray(data.services)?data.services:[];
+  if(Number(data.servicesVersion||0)<SERVICES_VERSION){
+    const oldByName=new Map(oldServices.map(s=>[`${s.platform}|${s.name}`,s]));
+    const merged=defaultServices.map(d=>{
+      const old=oldByName.get(`${d.platform}|${d.name}`);
+      return old?{...d,id:old.id,active:old.active!==false}:({...d});
+    });
+    const defaultsNames=new Set(defaultServices.map(s=>`${s.platform}|${s.name}`));
+    const custom=oldServices.filter(s=>!defaultsNames.has(`${s.platform}|${s.name}`));
+    data.services=[...merged,...custom];
+    data.servicesVersion=SERVICES_VERSION;
+  }else if(!Array.isArray(data.services)){data.services=defaultServices.map(x=>({...x}))}
+  if(!Array.isArray(data.orders))data.orders=[];
+  if(!Array.isArray(data.topups))data.topups=[];
+  if(!Number.isFinite(Number(data.balance)))data.balance=0;
+  if(!Number.isFinite(Number(data.visits)))data.visits=0;
+  return data;
+}
 let state=load(),category='الكل',chosen=null;
-function load(){try{return JSON.parse(localStorage.getItem(KEY))||{services:defaultServices,orders:[],topups:[],balance:0,visits:0,photo:'',owner:'MARO / MARWAN GAD'}}catch{return {services:defaultServices,orders:[],topups:[],balance:0,visits:0,photo:'',owner:'MARO / MARWAN GAD'}}}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){alert('مساحة التخزين في المتصفح ممتلئة. جرّب صورة أصغر.');}}
 function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function modal(html){$('modalContent').innerHTML=html;$('modalBg').classList.remove('hidden')}
-function close(){ $('modalBg').classList.add('hidden')}
-$('close').onclick=close;$('modalBg').onclick=e=>{if(e.target===$('modalBg'))close()}
-function render(){let list=state.services.filter(s=>s.active!==false);$('serviceCount').textContent=list.length;$('visitors').textContent=state.visits.toLocaleString('en-US');$('balance').textContent=Number(state.balance||0).toFixed(2);$('ownerName').textContent=state.owner||'MARO';if(state.photo)$('ownerPhoto').src=state.photo;
-let cats=['الكل',...new Set(list.map(s=>s.platform))];$('filters').innerHTML=cats.map(c=>`<button class="chip ${c===category?'active':''}" onclick="setCat('${esc(c)}')">${esc(c)}</button>`).join('');
-let q=$('search').value.toLowerCase();let filtered=list.filter(s=>(category==='الكل'||s.platform===category)&&(`${s.name} ${s.platform} ${s.description}`).toLowerCase().includes(q));
-$('serviceGrid').innerHTML=filtered.length?filtered.map(s=>`<article class="service"><div class="service-head"><div class="icon">${esc(s.icon||'✦')}</div><span class="platform">${esc(s.platform)}</span></div><h3>${esc(s.name)}</h3><p>${esc(s.description||'خدمة متاحة للطلب')}</p><div class="price">${s.price!==null&&s.price!==''?esc(s.price)+' ج.م <small>/ لكل 1000</small>':'اسأل عن السعر'}</div><button class="btn primary" onclick="order('${s.id}')">اطلب الخدمة ←</button></article>`).join(''):'<div class="empty">لا توجد نتائج مطابقة.</div>'}
+function close(){$('modalBg').classList.add('hidden')}
+$('close').onclick=close;
+$('modalBg').onclick=e=>{if(e.target===$('modalBg'))close()};
+function money(v){return Number(v||0).toFixed(2)}
+function currentPrice(s,qty){if(s.price===null||s.price===''||s.price===undefined)return null;return s.mode==='fixed'?Number(s.price)*qty:(qty/Number(s.unitSize||1000))*Number(s.price)}
+function priceText(s){if(s.price===null||s.price===''||s.price===undefined)return 'اسأل عن السعر';return `${money(s.price)} ج.م <small>/ ${esc(s.unitLabel||(s.mode==='fixed'?'للباقة':'لكل 1000'))}</small>`}
+function render(){
+  const list=state.services.filter(s=>s.active!==false);
+  $('serviceCount').textContent=list.length;
+  $('visitors').textContent=Number(state.visits||0).toLocaleString('en-US');
+  $('balance').textContent=money(state.balance);
+  $('ownerName').textContent=state.owner||'MARO';
+  if(state.photo)$('ownerPhoto').src=state.photo;
+  const cats=['الكل',...new Set(list.map(s=>s.platform))];
+  if(!cats.includes(category))category='الكل';
+  $('filters').innerHTML=cats.map(c=>`<button class="chip ${c===category?'active':''}" onclick="setCat('${esc(c)}')">${esc(c)}</button>`).join('');
+  const q=$('search').value.toLowerCase().trim();
+  const filtered=list.filter(s=>(category==='الكل'||s.platform===category)&&(`${s.name} ${s.platform} ${s.description}`).toLowerCase().includes(q));
+  $('serviceGrid').innerHTML=filtered.length?filtered.map(s=>`<article class="service">
+    <div class="service-head"><div class="icon">${esc(s.icon||'✦')}</div><span class="platform">${esc(s.platform)}</span></div>
+    <h3>${esc(s.name)}</h3><p>${esc(s.description||'خدمة متاحة للطلب')}</p>
+    <div class="price">${priceText(s)}</div>
+    <span class="warranty ${/بدون ضمان|اسأل عن الضمان|اسأل عن التفاصيل/.test(s.warranty||'')?'none':''}">${esc(s.warranty||'اسأل عن الضمان')}</span>
+    <button class="btn primary" onclick="order('${esc(s.id)}')">اطلب الخدمة ←</button>
+  </article>`).join(''):'<div class="empty">لا توجد نتائج مطابقة.</div>';
+}
 window.setCat=c=>{category=c;render()};
 $('search').oninput=render;
-function openAccount(){if(!state.customer){authCustomer();return}modal(`<h3>حساب العميل</h3><p>أهلًا ${esc(state.customer)}</p><div class="notice">رصيدك الحالي: ${Number(state.balance).toFixed(2)} ج.م</div><div class="tabs"><button class="btn primary" onclick="topup()">طلب شحن رصيد</button><button class="btn" onclick="myOrders()">طلباتي</button><button class="btn" onclick="logout()">خروج</button></div><div id="extra"></div>`)}
+
+function openAccount(){
+  if(!state.customer){authCustomer();return}
+  modal(`<h3>حساب العميل</h3><p>أهلًا ${esc(state.customer)}</p>
+    <div class="notice">رصيدك الحالي: ${money(state.balance)} ج.م</div>
+    <div class="tabs"><button class="btn primary" onclick="topup()">طلب شحن رصيد</button><button class="btn" onclick="myOrders()">طلباتي</button><button class="btn" onclick="logout()">خروج</button></div><div id="extra"></div>`);
+}
 window.openAccount=openAccount;
-function authCustomer(){modal(`<h3>دخول العميل</h3><p class="muted">نسخة عرض محلية للتجربة على نفس الجهاز.</p><input class="input" id="customerName" placeholder="اكتب اسمك" style="width:100%;margin:8px 0"><button class="btn primary" onclick="loginCustomer()">دخول / إنشاء حساب</button>`)}
-window.loginCustomer=()=>{let n=$('customerName').value.trim();if(!n)return alert('اكتب اسمك');state.customer=n;save();$('accountBtn').textContent=n;openAccount()}
-window.logout=()=>{state.customer='';save();$('accountBtn').textContent='دخول / حسابي';close()}
-function topup(){modal(`<h3>طلب إضافة رصيد</h3><p class="muted">حوّل المبلغ أولًا على رقم فودافون كاش الموضح بالأسفل، ثم اكتب بيانات التحويل وأرسل الطلب. الرصيد لا يضاف إلا بعد التأكد والموافقة.</p><div class="notice" style="margin:12px 0;padding:16px;border:1px solid var(--red);background:rgba(255,35,55,.10)"><b style="display:block;margin-bottom:8px">رقم الكاش الخاص بالشحن</b><div dir="ltr" style="font-size:25px;font-weight:900;letter-spacing:1px;color:var(--cyan)">01030980823</div><small class="muted">حوّل على الرقم ده، واحتفظ برقم العملية لإرساله بالأسفل.</small></div><div class="formgrid"><input class="input" id="topAmount" type="number" min="1" placeholder="المبلغ بالجنيه"><input class="input" id="topMethod" value="فودافون كاش" placeholder="طريقة التحويل"><input class="input full" id="topRef" placeholder="رقم العملية أو المرجع"></div><button class="btn primary" style="margin-top:12px" onclick="sendTopup()">إرسال طلب الشحن</button>`)}
+function authCustomer(){modal(`<h3>دخول العميل</h3><p class="muted">حساب تجريبي محفوظ على هذا المتصفح فقط.</p><input class="input" id="customerName" placeholder="اكتب اسمك" style="margin:8px 0"><button class="btn primary" onclick="loginCustomer()">دخول / إنشاء حساب</button>`)}
+window.loginCustomer=()=>{
+  const n=$('customerName').value.trim();if(!n)return alert('اكتب اسمك');
+  state.customer=n;save();$('accountBtn').textContent=n;openAccount();render();
+};
+window.logout=()=>{state.customer='';save();$('accountBtn').textContent='دخول / حسابي';close();render()};
+function topup(){
+  modal(`<h3>طلب إضافة رصيد</h3><p class="muted">حوّل المبلغ أولًا على رقم فودافون كاش، ثم أدخل بيانات التحويل. الرصيد لا يضاف إلا بعد المراجعة والموافقة.</p>
+    <div class="notice" style="padding:16px;border-color:var(--red);background:#ff244812"><b>رقم فودافون كاش للشحن</b><div dir="ltr" style="font-size:25px;font-weight:900;letter-spacing:1px;color:var(--cyan)">01030980823</div><small>احتفظ بمرجع التحويل.</small></div>
+    <div class="formgrid"><input class="input" id="topAmount" type="number" min="1" placeholder="المبلغ بالجنيه"><input class="input" id="topMethod" value="فودافون كاش" placeholder="طريقة التحويل"><input class="input full" id="topRef" placeholder="رقم العملية أو المرجع"></div>
+    <button class="btn primary" style="margin-top:12px" onclick="sendTopup()">إرسال طلب الشحن</button>`);
+}
 window.topup=topup;
-window.sendTopup=()=>{let amount=Number($('topAmount').value);if(!(amount>0))return alert('اكتب مبلغ صحيح');state.topups.unshift({id:Date.now(),customer:state.customer||'عميل',amount,method:$('topMethod').value,ref:$('topRef').value,status:'قيد المراجعة'});save();modal('<h3>تم إرسال طلب الشحن</h3><div class="notice">طلب الشحن وصل إلى قائمة المراجعة في لوحة الإدارة على هذا الجهاز.</div>')}
-window.myOrders=()=>{$('extra').innerHTML=state.orders.filter(o=>o.customer===state.customer).length?`<div class="tablebox"><table><tr><th>الخدمة</th><th>الكمية</th><th>الحالة</th></tr>${state.orders.filter(o=>o.customer===state.customer).map(o=>`<tr><td>${esc(o.service)}</td><td>${o.qty}</td><td>${esc(o.status)}</td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات بعد.</p>'}
-window.order=id=>{if(!state.customer){authCustomer();return}chosen=state.services.find(s=>s.id===id);modal(`<h3>طلب ${esc(chosen.name)}</h3><p class="muted">${esc(chosen.platform)} — ${esc(chosen.description)}</p><div class="formgrid"><input class="input full" id="target" placeholder="رابط الحساب أو المنشور"><input class="input" id="qty" type="number" min="${chosen.min||100}" value="${chosen.min||100}" oninput="calc()"><input class="input" id="notes" placeholder="ملاحظات (اختياري)"></div><div id="calcPrice" class="price">${chosen.price?chosen.price+' ج.م لكل 1000':'السعر حسب الطلب'}</div><button class="btn primary" onclick="sendOrder()">تأكيد الطلب</button>`);$('qty').oninput=calc}
-window.calc=()=>{let q=Number($('qty').value);$('calcPrice').textContent=chosen.price?`الإجمالي: ${(q/1000*Number(chosen.price)).toFixed(2)} ج.م`:'الخدمة غير مسعّرة — أضف السعر من لوحة الإدارة قبل الطلب'}
-window.sendOrder=()=>{let qty=Number($('qty').value),min=chosen.min||100;if(qty<min)return alert('الحد الأدنى '+min);if(chosen.price===null||chosen.price==='')return alert('السعر غير محدد. اطلب من الإدارة إضافة سعر أولًا.');let total=qty/1000*Number(chosen.price);if(state.balance<total)return alert('رصيدك غير كافٍ. قدّم طلب شحن رصيد أولًا.');state.balance-=total;state.orders.unshift({id:Date.now(),customer:state.customer,service:chosen.name,platform:chosen.platform,qty,total,target:$('target').value,notes:$('notes').value,status:'تم استلام الطلب'});save();render();modal('<h3>تم استلام طلبك بنجاح ✓</h3><div class="notice">تم تسجيل الطلب. تبدأ متابعة التنفيذ خلال 24 ساعة حسب تفاصيل الخدمة وتوفرها. يمكنك متابعة الحالة من حسابك.</div>')}
-function adminLogin(){modal(`<h3>دخول لوحة الإدارة</h3><p class="muted">هذه لوحة محلية تجريبية. غيّر بيانات الدخول في الكود قبل نشر الموقع.</p><input class="input" id="adminUser" placeholder="اسم المستخدم" style="width:100%;margin:6px 0"><input class="input" id="adminPass" type="password" placeholder="كلمة المرور" style="width:100%;margin:6px 0"><button class="btn primary" onclick="checkAdmin()">دخول الإدارة</button>`)}
-window.checkAdmin=()=>{if($('adminUser').value!=='MARWAN GAD'||$('adminPass').value!=='CHANGE_THIS_PASSWORD'){alert('بيانات الدخول غير صحيحة. عدّلها في الكود قبل الاستخدام.');return}adminPanel()}
-function adminPanel(){modal(`<h3>لوحة إدارة MARO</h3><div class="admin-note">تنبيه: البيانات محفوظة محليًا في هذا المتصفح فقط. لا تستخدمها لإدارة طلبات حقيقية من أجهزة متعددة.</div><div class="tabs"><button class="tab active" onclick="adminTab('orders',this)">الطلبات</button><button class="tab" onclick="adminTab('topups',this)">شحن الرصيد</button><button class="tab" onclick="adminTab('services',this)">الخدمات</button><button class="tab" onclick="adminTab('settings',this)">الإعدادات</button></div><div id="adminContent"></div>`);adminTab('orders')}
-window.adminTab=(tab,el)=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active');let box=$('adminContent');
-if(tab==='orders'){box.innerHTML=state.orders.length?`<div class="tablebox"><table><tr><th>العميل</th><th>الخدمة</th><th>كمية</th><th>الإجمالي</th><th>الرابط</th><th>الحالة</th></tr>${state.orders.map(o=>`<tr><td>${esc(o.customer)}</td><td>${esc(o.service)}</td><td>${o.qty}</td><td>${Number(o.total||0).toFixed(2)}</td><td>${esc(o.target)}</td><td><select class="input" onchange="changeOrder(${o.id},this.value)"><option ${o.status==='تم استلام الطلب'?'selected':''}>تم استلام الطلب</option><option ${o.status==='جاري التنفيذ'?'selected':''}>جاري التنفيذ</option><option ${o.status==='مكتمل'?'selected':''}>مكتمل</option><option ${o.status==='ملغي'?'selected':''}>ملغي</option></select></td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات بعد.</p>'}
-if(tab==='topups'){box.innerHTML=state.topups.length?`<div class="tablebox"><table><tr><th>العميل</th><th>المبلغ</th><th>الطريقة</th><th>المرجع</th><th>الحالة</th><th>الإجراء</th></tr>${state.topups.map(t=>`<tr><td>${esc(t.customer)}</td><td>${t.amount}</td><td>${esc(t.method)}</td><td>${esc(t.ref)}</td><td>${t.status}</td><td>${t.status==='قيد المراجعة'?`<button class="btn" onclick="approveTopup(${t.id})">موافقة</button> <button class="btn" onclick="rejectTopup(${t.id})">رفض</button>`:'—'}</td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات شحن.</p>'}
-if(tab==='services'){box.innerHTML=`<button class="btn primary" onclick="editService()">＋ إضافة خدمة</button><div class="tablebox"><table><tr><th>المنصة</th><th>الخدمة</th><th>السعر / 1000</th><th>الإجراء</th></tr>${state.services.map(s=>`<tr><td>${esc(s.platform)}</td><td>${esc(s.name)}</td><td>${s.price??'اسأل عن السعر'}</td><td><button class="btn" onclick="editService('${s.id}')">تعديل</button> <button class="btn" onclick="deleteService('${s.id}')">حذف</button></td></tr>`).join('')}</table></div>`}
-if(tab==='settings'){box.innerHTML=`<h4>بيانات الواجهة</h4><div class="formgrid"><input class="input" id="ownerEdit" value="${esc(state.owner)}" placeholder="اسم العرض"><input class="input" type="file" id="photoEdit" accept="image/*"></div><p class="muted">اختار صورتك من الجهاز لعرضها في الواجهة.</p><button class="btn primary" onclick="saveSettings()">حفظ</button><p class="muted">اسم الدخول التجريبي: MARWAN GAD. غيّر كلمة المرور داخل الكود.</p>`}}
-window.changeOrder=(id,s)=>{let o=state.orders.find(x=>x.id===id);if(o)o.status=s;save()}
-window.approveTopup=id=>{let t=state.topups.find(x=>x.id===id);if(t&&t.status==='قيد المراجعة'){t.status='تمت الموافقة';let customer=t.customer; if(customer===state.customer)state.balance+=t.amount; else {state.topups.find(x=>x.id===id).credited=true; alert('تم اعتماد الطلب. في النسخة المحلية رصيد كل عميل غير منفصل؛ هذه العملية تجريبية.')}save();adminPanel()}}
-window.rejectTopup=id=>{let t=state.topups.find(x=>x.id===id);if(t)t.status='مرفوض';save();adminPanel()}
-window.editService=id=>{let s=id?state.services.find(x=>x.id===id):{platform:'TikTok',name:'',icon:'✦',description:'',price:'',min:100,active:true};modal(`<h3>${id?'تعديل خدمة':'إضافة خدمة'}</h3><div class="formgrid"><input class="input" id="ePlatform" placeholder="المنصة" value="${esc(s.platform)}"><input class="input" id="eName" placeholder="اسم الخدمة" value="${esc(s.name)}"><input class="input" id="eIcon" placeholder="الأيقونة" value="${esc(s.icon)}"><input class="input" id="ePrice" type="number" placeholder="السعر لكل 1000" value="${s.price??''}"><input class="input" id="eMin" type="number" value="${s.min||100}" placeholder="الحد الأدنى"><input class="input" id="eDesc" placeholder="الوصف" value="${esc(s.description)}"></div><button class="btn primary" style="margin-top:12px" onclick="saveService('${id||''}')">حفظ الخدمة</button>`)}
-window.saveService=id=>{let s={id:id||'new'+Date.now(),platform:$('ePlatform').value.trim(),name:$('eName').value.trim(),icon:$('eIcon').value.trim(),price:$('ePrice').value===''?null:Number($('ePrice').value),min:Number($('eMin').value)||100,description:$('eDesc').value.trim(),active:true};if(!s.platform||!s.name)return alert('اكتب المنصة واسم الخدمة');if(id){let i=state.services.findIndex(x=>x.id===id);state.services[i]=s}else state.services.push(s);save();render();adminPanel()}
-window.deleteService=id=>{if(!confirm('حذف الخدمة؟'))return;state.services=state.services.filter(s=>s.id!==id);save();render();adminPanel()}
-window.saveSettings=()=>{state.owner=$('ownerEdit').value.trim()||'MARO';let f=$('photoEdit').files[0];if(f){let r=new FileReader();r.onload=()=>{state.photo=r.result;save();render();adminPanel()};r.readAsDataURL(f)}else{save();render();adminPanel()}}
-$('accountBtn').onclick=openAccount;$('walletBtn').onclick=()=>{if(!state.customer)authCustomer();else openAccount()};$('adminBtn').onclick=adminLogin;
-state.visits=(state.visits||0)+1;save();render();
-</script></body></html>
+window.sendTopup=()=>{
+  const amount=Number($('topAmount').value);if(!(amount>0))return alert('اكتب مبلغًا صحيحًا');
+  state.topups.unshift({id:Date.now(),customer:state.customer||'عميل',amount,method:$('topMethod').value,ref:$('topRef').value,status:'قيد المراجعة'});
+  save();modal('<h3>تم إرسال طلب الشحن</h3><div class="notice">تم تسجيل طلبك في قائمة المراجعة بلوحة الإدارة على هذا المتصفح.</div>');
+};
+window.myOrders=()=>{
+  const mine=state.orders.filter(o=>o.customer===state.customer);
+  $('extra').innerHTML=mine.length?`<div class="tablebox"><table><tr><th>الخدمة</th><th>الكمية</th><th>الإجمالي</th><th>الحالة</th></tr>${mine.map(o=>`<tr><td>${esc(o.service)}</td><td>${o.qty}</td><td>${o.total===null?'بانتظار التسعير':money(o.total)+' ج.م'}</td><td>${esc(o.status)}</td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات بعد.</p>';
+};
+window.order=id=>{
+  if(!state.customer){authCustomer();return}
+  chosen=state.services.find(s=>s.id===id);if(!chosen)return;
+  const fixed=chosen.mode==='fixed',min=Number(chosen.min||(fixed?1:100));
+  modal(`<h3>طلب ${esc(chosen.name)}</h3><p class="muted">${esc(chosen.platform)} — ${esc(chosen.description)}</p>
+    <div class="formgrid"><input class="input full" id="target" placeholder="${/PUBG|Free Fire/.test(chosen.platform)?'Player ID / رقم اللاعب':'رابط الحساب أو المنشور'}">
+    <input class="input" id="qty" type="number" min="${min}" step="${fixed?1:1}" value="${min}" ${fixed?'max="100"':''} oninput="calc()">
+    <input class="input" id="notes" placeholder="ملاحظات (اختياري)"></div>
+    <div id="calcPrice" class="total-box"></div><button class="btn primary" onclick="sendOrder()">تأكيد الطلب</button>`);
+  $('qty').oninput=calc;calc();
+};
+window.calc=()=>{
+  if(!chosen)return;
+  const q=Math.max(0,Number($('qty').value)||0),total=currentPrice(chosen,q);
+  $('calcPrice').textContent=total===null?'السعر غير محدد — سيتم تسجيل الطلب بانتظار التسعير.':`الإجمالي: ${money(total)} ج.م`;
+};
+window.sendOrder=()=>{
+  if(!chosen)return;
+  const qty=Number($('qty').value),min=Number(chosen.min||(chosen.mode==='fixed'?1:100));
+  if(!Number.isFinite(qty)||qty<min)return alert('الحد الأدنى للكمية هو '+min);
+  if(chosen.mode==='fixed'&&!Number.isInteger(qty))return alert('عدد الباقات يجب أن يكون رقمًا صحيحًا');
+  const target=$('target').value.trim();if(!target)return alert('اكتب الرابط أو البيانات المطلوبة');
+  const total=currentPrice(chosen,qty);
+  if(total!==null&&state.balance<total)return alert('رصيدك غير كافٍ. قدّم طلب شحن رصيد أولًا.');
+  if(total!==null)state.balance-=total;
+  state.orders.unshift({id:Date.now(),customer:state.customer,service:chosen.name,platform:chosen.platform,qty,total,target,notes:$('notes').value,status:total===null?'بانتظار التسعير':'تم استلام الطلب'});
+  save();render();modal('<h3>تم تسجيل طلبك بنجاح ✓</h3><div class="notice">تم حفظ الطلب. يمكنك متابعة حالته من حسابك. الطلبات غير المسعّرة لا يتم خصم رصيد لها.</div>');
+};
+
+function adminLogin(){
+  modal(`<h3>دخول لوحة الإدارة</h3><p class="muted">بيانات الدخول التجريبية مضبوطة داخل الكود. غيّر كلمة المرور في ADMIN_PASS قبل نشر الموقع.</p>
+    <input class="input" id="adminUser" placeholder="اسم المستخدم" style="margin:6px 0">
+    <input class="input" id="adminPass" type="password" placeholder="كلمة المرور" style="margin:6px 0">
+    <button class="btn primary" onclick="checkAdmin()">دخول الإدارة</button>`);
+}
+window.checkAdmin=()=>{
+  if($('adminUser').value!==ADMIN_USER||$('adminPass').value!==ADMIN_PASS){alert('بيانات الدخول غير صحيحة. راجع ADMIN_USER و ADMIN_PASS أعلى كود JavaScript.');return}
+  adminPanel();
+};
+function adminPanel(){
+  modal(`<h3>لوحة إدارة MARO</h3><div class="admin-note">تنبيه: هذه نسخة محلية؛ الطلبات والأرصدة لا تتزامن بين أجهزة مختلفة. لا تضع بيانات عملاء حقيقية قبل ربط قاعدة بيانات آمنة.</div>
+    <div class="tabs"><button class="tab active" onclick="adminTab('orders',this)">الطلبات</button><button class="tab" onclick="adminTab('topups',this)">شحن الرصيد</button><button class="tab" onclick="adminTab('services',this)">الخدمات</button><button class="tab" onclick="adminTab('settings',this)">الإعدادات</button></div><div id="adminContent"></div>`);
+  adminTab('orders');
+}
+window.adminTab=(tab,el)=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active');
+  const box=$('adminContent');
+  if(tab==='orders'){
+    box.innerHTML=state.orders.length?`<div class="tablebox"><table><tr><th>العميل</th><th>الخدمة</th><th>الكمية</th><th>الإجمالي</th><th>الرابط</th><th>الحالة</th></tr>
+      ${state.orders.map(o=>`<tr><td>${esc(o.customer)}</td><td>${esc(o.service)}</td><td>${o.qty}</td><td>${o.total===null?'بانتظار التسعير':money(o.total)}</td><td>${esc(o.target)}</td><td><select class="input" onchange="changeOrder(${o.id},this.value)">${['تم استلام الطلب','بانتظار التسعير','جاري التنفيذ','مكتمل','ملغي'].map(x=>`<option ${o.status===x?'selected':''}>${x}</option>`).join('')}</select></td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات بعد.</p>';
+  }
+  if(tab==='topups'){
+    box.innerHTML=state.topups.length?`<div class="tablebox"><table><tr><th>العميل</th><th>المبلغ</th><th>الطريقة</th><th>المرجع</th><th>الحالة</th><th>الإجراء</th></tr>
+      ${state.topups.map(t=>`<tr><td>${esc(t.customer)}</td><td>${money(t.amount)}</td><td>${esc(t.method)}</td><td>${esc(t.ref)}</td><td>${esc(t.status)}</td><td>${t.status==='قيد المراجعة'?`<div class="admin-actions"><button class="btn small-btn" onclick="approveTopup(${t.id})">موافقة</button><button class="btn small-btn" onclick="rejectTopup(${t.id})">رفض</button></div>`:'—'}</td></tr>`).join('')}</table></div>`:'<p class="muted">لا توجد طلبات شحن.</p>';
+  }
+  if(tab==='services'){
+    box.innerHTML=`<button class="btn primary" onclick="editService()">＋ إضافة خدمة</button><div class="tablebox" style="margin-top:10px"><table><tr><th>المنصة</th><th>الخدمة</th><th>السعر</th><th>الظهور</th><th>الإجراء</th></tr>
+      ${state.services.map(s=>`<tr><td>${esc(s.platform)}</td><td>${esc(s.name)}</td><td>${s.price===null?'اسأل عن السعر':money(s.price)+' ج.م / '+esc(s.unitLabel||'لكل 1000')}</td><td>${s.active===false?'مخفية':'ظاهرة'}</td><td><div class="admin-actions"><button class="btn small-btn" onclick="editService('${esc(s.id)}')">تعديل</button><button class="btn small-btn" onclick="toggleService('${esc(s.id)}')">${s.active===false?'إظهار':'إخفاء'}</button><button class="btn small-btn" onclick="deleteService('${esc(s.id)}')">حذف</button></div></td></tr>`).join('')}</table></div>`;
+  }
+  if(tab==='settings'){
+    box.innerHTML=`<h4>بيانات الواجهة</h4><div class="formgrid"><input class="input" id="ownerEdit" value="${esc(state.owner||'MARO')}" placeholder="اسم العرض"><input class="input" type="file" id="photoEdit" accept="image/*"></div>
+      <p class="muted">اختار صورة صغيرة من جهازك لعرضها في الواجهة.</p><button class="btn primary" onclick="saveSettings()">حفظ الإعدادات</button>
+      <div class="admin-note">اسم المستخدم: ${esc(ADMIN_USER)} — غيّر كلمة المرور من متغير ADMIN_PASS داخل الكود قبل النشر.</div>`;
+  }
+};
+window.changeOrder=(id,status)=>{const o=state.orders.find(x=>x.id===id);if(o)o.status=status;save()};
+window.approveTopup=id=>{
+  const t=state.topups.find(x=>x.id===id);
+  if(!t||t.status!=='قيد المراجعة')return;
+  t.status='تمت الموافقة';
+  if(t.customer===state.customer){state.balance=Number(state.balance||0)+Number(t.amount||0);alert('تمت الموافقة وإضافة الرصيد لحساب العميل الحالي.')}
+  else{t.credited=false;alert('تم اعتماد الطلب. لأن النسخة محلية، أضف الرصيد لحساب العميل يدويًا عند دخوله أو استخدم قاعدة بيانات مشتركة.')}
+  save();adminPanel();render();
+};
+window.rejectTopup=id=>{const t=state.topups.find(x=>x.id===id);if(t)t.status='مرفوض';save();adminPanel()};
+window.editService=id=>{
+  const s=id?state.services.find(x=>x.id===id):{platform:'TikTok',name:'',icon:'✦',description:'',price:'',min:100,active:true,mode:'perUnit',unitSize:1000,unitLabel:'لكل 1000',warranty:'اسأل عن الضمان'};
+  if(!s)return;
+  modal(`<h3>${id?'تعديل خدمة':'إضافة خدمة'}</h3><div class="formgrid">
+    <input class="input" id="ePlatform" placeholder="المنصة" value="${esc(s.platform)}">
+    <input class="input" id="eName" placeholder="اسم الخدمة" value="${esc(s.name)}">
+    <input class="input" id="eIcon" placeholder="الأيقونة" value="${esc(s.icon)}">
+    <input class="input" id="ePrice" type="number" min="0" step="0.01" placeholder="السعر" value="${s.price??''}">
+    <select class="input" id="eMode"><option value="perUnit" ${s.mode!=='fixed'?'selected':''}>سعر حسب الوحدة</option><option value="fixed" ${s.mode==='fixed'?'selected':''}>سعر ثابت للباقة</option></select>
+    <input class="input" id="eUnitSize" type="number" min="1" value="${Number(s.unitSize||1000)}" placeholder="حجم الوحدة (مثلاً 1000 أو 100)">
+    <input class="input" id="eUnitLabel" placeholder="وصف الوحدة" value="${esc(s.unitLabel||'لكل 1000')}">
+    <input class="input" id="eMin" type="number" min="1" value="${Number(s.min||100)}" placeholder="الحد الأدنى">
+    <input class="input" id="eWarranty" placeholder="الضمان" value="${esc(s.warranty||'اسأل عن الضمان')}">
+    <input class="input full" id="eDesc" placeholder="الوصف" value="${esc(s.description)}">
+  </div><button class="btn primary" style="margin-top:12px" onclick="saveService('${id||''}')">حفظ الخدمة</button>`);
+};
+window.saveService=id=>{
+  const mode=$('eMode').value;
+  const s={id:id||'custom-'+Date.now(),platform:$('ePlatform').value.trim(),name:$('eName').value.trim(),icon:$('eIcon').value.trim()||'✦',
+    price:$('ePrice').value===''?null:Number($('ePrice').value),mode,unitSize:mode==='fixed'?1:(Number($('eUnitSize').value)||1000),
+    unitLabel:$('eUnitLabel').value.trim()||(mode==='fixed'?'للباقة':'لكل 1000'),min:Number($('eMin').value)|| (mode==='fixed'?1:100),
+    warranty:$('eWarranty').value.trim()||'اسأل عن الضمان',description:$('eDesc').value.trim(),active:true};
+  if(!s.platform||!s.name)return alert('اكتب المنصة واسم الخدمة');
+  if(s.price!==null&&(!Number.isFinite(s.price)||s.price<0))return alert('اكتب سعرًا صحيحًا');
+  if(id){const i=state.services.findIndex(x=>x.id===id);if(i<0)return alert('الخدمة غير موجودة');s.active=state.services[i].active!==false;state.services[i]=s}
+  else state.services.push(s);
+  save();render();adminPanel();
+};
+window.toggleService=id=>{const s=state.services.find(x=>x.id===id);if(s)s.active=s.active===false;save();render();adminPanel()};
+window.deleteService=id=>{if(!confirm('حذف الخدمة نهائيًا من هذه النسخة؟'))return;state.services=state.services.filter(s=>s.id!==id);save();render();adminPanel()};
+window.saveSettings=()=>{
+  state.owner=$('ownerEdit').value.trim()||'MARO';
+  const f=$('photoEdit').files[0];
+  if(f){if(f.size>900000)return alert('اختار صورة أقل من 900 كيلوبايت حتى لا تمتلئ مساحة المتصفح.');const r=new FileReader();r.onload=()=>{state.photo=r.result;save();render();adminPanel()};r.readAsDataURL(f)}
+  else{save();render();adminPanel()}
+};
+$('accountBtn').onclick=openAccount;
+$('walletBtn').onclick=()=>{if(!state.customer)authCustomer();else openAccount()};
+$('adminBtn').onclick=adminLogin;
+state.visits=Number(state.visits||0)+1;save();render();
+</script>
+</body>
+</html>
