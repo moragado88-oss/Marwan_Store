@@ -34,7 +34,7 @@ footer{text-align:center;padding:22px;color:#8b98a8;font-size:12px}
 </style>
 </head>
 <body>
-<div id="login"><div class="loginbox"><h1>HASSAN GAD</h1><p>ENGLISH ACADEMY</p><label style="text-align:right">كلمة مرور الأدمن</label><input id="pass" type="password" placeholder="اكتب كلمة المرور" onkeydown="if(event.key==='Enter')login()"><button onclick="login()">دخول المنصة</button><small>كلمة المرور المبدئية: 2026</small></div></div>
+<div id="login"><div class="loginbox"><h1>HASSAN GAD</h1><p>ENGLISH ACADEMY</p><label style="text-align:right">كلمة مرور الأدمن</label><input id="pass" type="password" placeholder="اكتب كلمة المرور" onkeydown="if(event.key==='Enter')login()"><button onclick="login()">دخول المنصة</button><small>كلمة المرور المبدئية: </small></div></div>
 <header><div class="brand"><b>HASSAN GAD</b><small>ENGLISH ACADEMY</small></div><div class="sub">نظام إدارة الطلاب والكورسات</div><div class="actions"><button class="gray" onclick="backup()">نسخة احتياطية</button><button class="gray" onclick="document.getElementById('restore').click()">استعادة نسخة</button><input id="restore" type="file" accept="application/json" hidden onchange="restoreData(event)"><button class="red" onclick="logout()">خروج</button></div></header>
 <nav id="nav">
 <button data-page="home" class="active" onclick="show('home')">الرئيسية</button>
