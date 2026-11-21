@@ -1,91 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hassan Gad English Academy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HASSAN GAD | English Academy - محمي</title>
 <style>
-:root{--navy:#101d35;--blue:#2463a5;--cyan:#52c7ee;--bg:#f2f5fa;--ink:#17243a;--muted:#718096;--line:#e3eaf2;--green:#16865c;--red:#c43d4d}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
-button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:10px 15px;background:var(--blue);color:white}
-header{background:linear-gradient(115deg,#101d35,#1c426d);color:#fff;padding:19px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand b{font-size:22px;letter-spacing:1px}.brand small{display:block;color:#83dfff;letter-spacing:2px;margin-top:5px}
-header .sub{color:#dceafa;font-size:13px}
-nav{background:#1b3152;display:flex;gap:6px;overflow-x:auto;padding:10px 4%;position:sticky;top:0;z-index:5}
-nav button{background:transparent;color:#e9f2ff;white-space:nowrap;padding:10px 13px}nav button.active,nav button:hover{background:#315783}
-main{max-width:1250px;margin:25px auto;padding:0 16px;min-height:72vh}
-h1{font-size:25px;margin:5px 0 18px}h2{font-size:18px;margin:0 0 14px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px;margin:15px 0 22px}
-.stat,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 5px 18px #19375a08}
-.stat small{color:var(--muted)}.stat strong{display:block;font-size:26px;margin-top:10px;color:#1c426d}
-.panel{margin:16px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
-label{display:block;color:#526176;font-size:13px;margin:8px 0 5px}
-input,select,textarea{width:100%;border:1px solid #d8e1eb;border-radius:9px;padding:11px;background:#fff;color:var(--ink);outline-color:#80c8ed}
-textarea{min-height:70px;resize:vertical}.primary{background:var(--blue)}.green{background:var(--green)}.red{background:var(--red)}.gray{background:#65758b}.wa{background:#168b57;text-decoration:none;color:white;border-radius:8px;padding:8px 10px;display:inline-block;font-size:13px}
-table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:right;padding:11px;border-bottom:1px solid #edf1f5;font-size:13px}th{color:#53657b;background:#f8fafc}
-.tablewrap{overflow:auto}.hint{padding:12px 14px;background:#e8f5ff;border-radius:10px;color:#315a7a;line-height:1.8}
-.actions{display:flex;gap:7px;flex-wrap:wrap}.actions button{font-size:12px;padding:7px 10px}.empty{color:var(--muted);text-align:center;padding:25px}
-#login{position:fixed;inset:0;background:linear-gradient(130deg,#101d35,#1e4b78);display:grid;place-items:center;z-index:20;padding:18px}
-.loginbox{width:min(420px,100%);background:white;border-radius:20px;padding:28px;box-shadow:0 25px 70px #0004;text-align:center}
-.loginbox h1{color:var(--navy);margin:0}.loginbox p{color:#2388bb;letter-spacing:2px;margin:8px 0 22px}
-.loginbox button{width:100%;margin-top:12px}.loginbox small{display:block;color:#8a6a2c;margin-top:14px}
-footer{text-align:center;padding:22px;color:#8b98a8;font-size:12px}
-.toast{position:fixed;bottom:18px;left:18px;background:#142a47;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:50}
-@media(max-width:600px){header{padding:15px}.brand b{font-size:18px}h1{font-size:21px}.panel{padding:13px}nav{padding:8px}}
+:root{--navy:#101b35;--gold:#e7b85b;--bg:#f3f5fa;--green:#16865d;--red:#d84b57}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial;background:var(--bg);color:#17233d}
+header{background:linear-gradient(120deg,#101b35,#20385e);color:white;padding:25px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{color:var(--gold);font-size:25px;font-weight:bold}
+.layout{display:grid;grid-template-columns:220px 1fr;gap:20px;max-width:1400px;margin:25px auto;padding:0 15px}
+aside{background:var(--navy);padding:15px;border-radius:16px;height:max-content}
+.navbtn{display:block;width:100%;padding:14px;border:0;border-radius:9px;background:none;color:white;text-align:right;font-size:14px;cursor:pointer;position:relative}
+.navbtn.active,.navbtn:hover{background:#ffffff20;color:var(--gold)}
+.navbtn.locked::after{content:'🔒';position:absolute;left:12px;top:13px}
+.page{display:none}.page.active{display:block}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.stat,.panel{background:white;padding:18px;border-radius:14px;margin-bottom:15px;box-shadow:0 4px 15px #00000008}
+.stat strong{display:block;font-size:27px;margin-top:10px}
+.btn{border:0;border-radius:9px;padding:11px 15px;background:var(--navy);color:white;margin:3px;cursor:pointer}
+.gold{background:var(--gold);color:#241b0d}.green{background:#e8f7f0;color:var(--green)}.red{background:#fff0f1;color:var(--red)}
+input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:9px;margin-top:5px}
+#outerLock{position:fixed;inset:0;background:linear-gradient(135deg,#0F172A,#20385E);z-index:9999;display:grid;place-items:center;padding:20px}
+.lockBox{background:white;border-radius:24px;padding:32px;max-width:420px;width:100%;text-align:center}
+.lockIcon{width:70px;height:70px;background:#FEF3C7;border-radius:50%;display:grid;place-items:center;font-size:32px;margin:0 auto 16px}
+#innerLock{position:fixed;inset:0;background:rgba(15,23,42,0.8);backdrop-filter:blur(6px);z-index:9998;display:none;place-items:center;padding:20px}
+.modalback{display:none;position:fixed;inset:0;background:#0009;z-index:10;padding:15px;overflow:auto}
+.modalback.show{display:grid;place-items:center}
+.modal{background:white;padding:22px;border-radius:15px;width:min(700px,100%)}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
-<div id="login"><div class="loginbox"><h1>HASSAN GAD</h1><p>ENGLISH ACADEMY</p><label style="text-align:right">كلمة مرور الأدمن</label><input id="pass" type="password" placeholder="اكتب كلمة المرور" onkeydown="if(event.key==='Enter')login()"><button onclick="login()">دخول المنصة</button><small>كلمة المرور المبدئية: </small></div></div>
-<header><div class="brand"><b>HASSAN GAD</b><small>ENGLISH ACADEMY</small></div><div class="sub">نظام إدارة الطلاب والكورسات</div><div class="actions"><button class="gray" onclick="backup()">نسخة احتياطية</button><button class="gray" onclick="document.getElementById('restore').click()">استعادة نسخة</button><input id="restore" type="file" accept="application/json" hidden onchange="restoreData(event)"><button class="red" onclick="logout()">خروج</button></div></header>
-<nav id="nav">
-<button data-page="home" class="active" onclick="show('home')">الرئيسية</button>
-<button data-page="students" onclick="show('students')">الطلاب</button>
-<button data-page="courses" onclick="show('courses')">الكورسات</button>
-<button data-page="attendance" onclick="show('attendance')">الحضور والغياب</button>
-<button data-page="grades" onclick="show('grades')">درجات الشيت</button>
-<button data-page="payments" onclick="show('payments')">المدفوعات</button>
-</nav><main id="app"></main><footer>© <span id="year"></span> HASSAN GAD ENGLISH ACADEMY</footer><div id="toast" class="toast"></div>
+<div id="outerLock"><div class="lockBox"><div class="lockIcon">🔐</div><h2>منصة HASSAN GAD محمية</h2><p style="color:#64748B;margin:12px 0 20px">دخل رمز المنصة - الرمز مع مستر حسن فقط<br>01067820554</p><input id="outerInput" type="password" placeholder="اكتب رمز المنصة" style="text-align:center;font-size:20px;letter-spacing:2px"><button class="btn gold" style="width:100%;margin-top:14px;padding:14px;font-weight:900" onclick="checkOuter()">🔓 فتح المنصة</button><p id="outerErr" style="color:#d84b57;display:none;margin-top:12px">❌ الرمز غلط</p><p style="font-size:12px;color:#94A3B8;margin-top:10px"≥  <b></b></p></div></div>
+<div id="innerLock"><div class="lockBox"><div class="lockIcon" style="background:#FEE2E2">🔒</div><h3 id="innerTitle">قسم مقفول</h3><p style="color:#71809b">دخل رمز القسم</p><input id="innerInput" type="password" placeholder="رمز القسم" style="text-align:center;margin-top:10px"><div style="display:flex;gap:10px;margin-top:14px"><button class="btn" style="flex:1;background:#101b35" onclick="checkInner()">فتح</button><button class="btn" style="flex:1;background:#E2E8F0;color:#333" onclick="closeInner()">إلغاء</button></div><p id="innerErr" style="color:#d84b57;display:none;margin-top:10px">رمز غلط - جرب joo222</p></div></div>
+<header><div><div class="logo">HG | HASSAN GAD 🔒</div><h1>English Academy</h1><p>منصة مستر حسن جاد - محمية</p></div><div style="display:flex;gap:8px"><a id="topWhatsapp" class="btn gold" href="https://wa.me/201067820554" target="_blank">واتساب المستر</a><button class="btn red" onclick="lockNow()">🔒 قفل</button></div></header>
+<div class="layout"><aside><button class="navbtn active" data-page="dashboard" onclick="tryOpen('dashboard',this)">🏠 الرئيسية</button><button class="navbtn" data-page="students" onclick="tryOpen('students',this)">👨‍🎓 الطلاب</button><button class="navbtn" data-page="attendance" onclick="tryOpen('attendance',this)">📋 الحضور والغياب</button><button class="navbtn" data-page="grades" onclick="tryOpen('grades',this)">📝 درجات الشيت</button><button class="navbtn locked" data-page="payments" onclick="tryOpen('payments',this)">💳 المدفوعات</button><button class="navbtn locked" data-page="courses" onclick="tryOpen('courses',this)">🎓 الكورسات الأونلاين</button><button class="navbtn locked" data-page="lessons" onclick="tryOpen('lessons',this)">💻 الدروس الأونلاين</button><button class="navbtn locked" data-page="settings" onclick="tryOpen('settings',this)">⚙️ الإعدادات</button></aside>
+<main>
+<section class="page active" id="dashboard"><h2>أهلاً يا مستر حسن 👋</h2><p>المنصة محمية: الخارجي <b></b> و الداخلي <b></b></p><div class="stats"><div class="stat">إجمالي الطلاب<strong id="total">0</strong></div><div class="stat">حضور اليوم<strong id="present">0</strong></div><div class="stat">غياب اليوم<strong id="absent">0</strong></div><div class="stat">مدفوعات الشهر<strong id="paid">0</strong></div></div><div class="panel"><h3>🔐 الأكواد الحالية</h3><p>✅ الخارجي: <b></b> | 🔒 المدفوعات/الكورسات/الدروس/الإعدادات: <b></b></p></div><div class="panel"><h3>مجموعات الأوفلاين</h3><p>📍 قرية العاشر: خامسة ابتدائي، أولى إعدادي، ثانية إعدادي.</p><p>📍 قرية الرضوان: من أولى ابتدائي حتى ثالثة إعدادي.</p></div></section>
+<section class="page" id="students"><h2>إدارة الطلاب</h2><button class="btn gold" onclick="openStudent()">+ إضافة طالب</button><div class="panel"><input id="search" placeholder="ابحث..." oninput="renderStudents()"><div class="tablewrap"><table><thead><tr><th>الاسم</th><th>المرحلة</th><th>المجموعة</th><th>واتساب الأب</th><th>الإجراءات</th></tr></thead><tbody id="studentsBody"></tbody></table></div></div></section>
+<section class="page" id="attendance"><h2>الحضور والغياب</h2><div class="panel"><div class="field"><label>التاريخ</label><input type="date" id="attDate"></div><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>التسجيل</th></tr></thead><tbody id="attendanceBody"></tbody></table></div></div></section>
+<section class="page" id="grades"><h2>درجات الشيت</h2><div class="panel"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div class="field"><label>الطالب</label><select id="gradeStudent"></select></div><div class="field"><label>الدرجة</label><input id="gradeScore" type="number" min="0"></div><div class="field"><label>الدرجة النهائية</label><input id="gradeMax" type="number" value="20" min="1"></div></div><button class="btn gold" onclick="saveGrade()">حفظ الدرجة</button></div><div class="panel tablewrap"><table><thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead><tbody id="gradesBody"></tbody></table></div></section>
+<section class="page" id="payments"><h2>المدفوعات 🔒</h2><div class="panel"><label>الشهر</label><input type="month" id="payMonth"><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>تغيير</th></tr></thead><tbody id="paymentsBody"></tbody></table></div></div></section>
+<section class="page" id="courses"><h2>الكورسات الأونلاين 🔒</h2><div class="panel"><h3>📘 ابتدائي - 📗 اعدادي - 📕 ثانوي</h3><p>تأسيس وشرح ومراجعة اللغة الإنجليزية</p></div></section>
+<section class="page" id="lessons"><h2>الدروس الأونلاين 🔒</h2><div class="panel"><h3>احجز درسك مع مستر حسن جاد</h3><p>دروس أونلاين لجميع المراحل.</p><button class="btn gold" onclick="contact('حجز درس أونلاين')">احجز عبر واتساب</button></div></section>
+<section class="page" id="settings"><h2>إعدادات المنصة 🔒</h2><div class="panel"><h3>🔐 تغيير الرموز</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label>رمز المنصة الخارجي</label><input id="setMaster" value="Hassan2026"></div><div class="field"><label>رمز المدفوعات 💳</label><input id="setPay" value="joo222"></div><div class="field"><label>رمز الكورسات 🎓</label><input id="setCourses" value="joo222"></div><div class="field"><label>رمز الدروس 💻</label><input id="setLessons" value="joo222"></div><div class="field"><label>رمز الإعدادات ⚙️</label><input id="setSettings" value="joo222"></div><div class="field"><label>رقم واتساب المستر</label><input id="teacherPhone" value="201067820554"></div></div><button class="btn gold" style="width:100%;padding:14px;margin-top:12px" onclick="saveCodes()">💾 حفظ كل الأكواد</button></div><div class="panel"><button class="btn" onclick="exportData()">تحميل نسخة احتياطية</button><button class="btn red" onclick="clearData()">مسح جميع البيانات</button></div></section>
+</main></div>
+<footer>© HASSAN GAD ENGLISH ACADEMY -  / </footer>
+<div class="modalback" id="studentModal"><div class="modal" style="background:white;padding:22px;border-radius:15px;width:min(700px,100%)"><h3>إضافة طالب جديد</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div class="field"><label>اسم الطالب</label><input id="stName"></div><div class="field"><label>المرحلة</label><select id="stStage"><option>أولى ابتدائي</option><option>ثانية ابتدائي</option><option>ثالثة ابتدائي</option><option>رابعة ابتدائي</option><option>خامسة ابتدائي</option><option>سادسة ابتدائي</option><option>أولى إعدادي</option><option>ثانية إعدادي</option><option>ثالثة إعدادي</option><option>أولى ثانوي</option><option>ثانية ثانوي</option><option>ثالثة ثانوي</option></select></div><div class="field"><label>نوع الدراسة</label><select id="stType"><option>أوفلاين</option><option>أونلاين</option></select></div><div class="field"><label>المجموعة</label><select id="stGroup"><option>قرية العاشر</option><option>قرية الرضوان</option><option>أونلاين</option></select></div><div class="field"><label>رقم واتساب الأب</label><input id="stParent" placeholder="2010XXXXXXXX"></div><div class="field"><label>ملاحظات</label><input id="stNotes"></div></div><button class="btn gold" onclick="saveStudent()">حفظ الطالب</button><button class="btn" onclick="closeStudent()">إغلاق</button></div></div>
 <script>
-const KEY='hassan_gad_academy_local_v1';
-let db={students:[],courses:[],attendance:[],grades:[],payments:[]};
-try{db={...db,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){}
-const save=()=>localStorage.setItem(KEY,JSON.stringify(db));
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const today=()=>new Date().toISOString().slice(0,10);
-const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-function toast(s){let t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2600)}
-function login(){if(document.getElementById('pass').value==='2026'){sessionStorage.setItem('hga_auth','1');document.getElementById('login').style.display='none';show('home')}else toast('كلمة المرور غير صحيحة')}
-function logout(){sessionStorage.removeItem('hga_auth');document.getElementById('login').style.display='grid'}
-if(sessionStorage.getItem('hga_auth')==='1')document.getElementById('login').style.display='none';
-document.getElementById('year').textContent=new Date().getFullYear();
-function show(page){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));let root=document.getElementById('app');root.innerHTML=views[page]();if(page==='students')renderStudents();if(page==='attendance')renderAttendance();if(page==='grades')renderGrades();if(page==='payments')renderPayments();if(page==='courses')renderCourses()}
-function studentSelect(){return '<option value="">اختر الطالب</option>'+db.students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')}
-const views={
-home:()=>`<h1>لوحة التحكم</h1><section class="stats">
-<div class="stat"><small>إجمالي الطلاب</small><strong>${db.students.length}</strong></div>
-<div class="stat"><small>حضور اليوم</small><strong>${db.attendance.filter(x=>x.date===today()&&x.status==='حضور').length}</strong></div>
-<div class="stat"><small>غياب اليوم</small><strong>${db.attendance.filter(x=>x.date===today()&&x.status==='غياب').length}</strong></div>
-<div class="stat"><small>إجمالي المدفوعات</small><strong>${db.payments.reduce((a,x)=>a+Number(x.amount),0).toFixed(2)} ج.م</strong></div></section>
-<div class="hint">كل البيانات محفوظة على نفس الجهاز والمتصفح. استخدم زر «نسخة احتياطية» بانتظام للاحتفاظ بنسخة من بياناتك.</div>
-<div class="panel"><h2>اختصارات سريعة</h2><div class="actions"><button onclick="show('students')">إضافة طالب</button><button onclick="show('attendance')">تسجيل حضور</button><button onclick="show('grades')">إضافة درجة</button><button onclick="show('payments')">تسجيل دفعة</button></div></div>`,
-students:()=>`<h1>إدارة الطلاب</h1><div class="panel"><h2>إضافة طالب جديد</h2><form id="studentForm" class="grid">
-<div><label>اسم الطالب *</label><input name="name" required></div><div><label>رقم ولي الأمر *</label><input name="phone" placeholder="01012345678" required></div><div><label>المرحلة / الصف</label><input name="grade"></div><div><label>المجموعة</label><input name="group"></div><div style="grid-column:1/-1"><label>ملاحظات</label><textarea name="notes"></textarea></div><div><button>حفظ الطالب</button></div></form></div><div class="panel"><h2>قائمة الطلاب</h2><div class="tablewrap"><table><thead><tr><th>الاسم</th><th>رقم ولي الأمر</th><th>الصف</th><th>المجموعة</th><th>واتساب</th><th>إجراءات</th></tr></thead><tbody id="studentRows"></tbody></table></div></div>`,
-courses:()=>`<h1>الكورسات والمجموعات</h1><div class="panel"><h2>إضافة كورس</h2><form id="courseForm" class="grid"><div><label>اسم الكورس *</label><input name="title" required></div><div><label>المجموعة</label><input name="group"></div><div><label>السعر بالجنيه</label><input name="price" type="number" min="0" step=".01" value="0"></div><div><label>تفاصيل</label><input name="details"></div><div><button>إضافة الكورس</button></div></form></div><div class="panel"><h2>الكورسات المسجلة</h2><div class="tablewrap"><table><thead><tr><th>الكورس</th><th>المجموعة</th><th>السعر</th><th>التفاصيل</th><th></th></tr></thead><tbody id="courseRows"></tbody></table></div></div>`,
-attendance:()=>`<h1>الحضور والغياب</h1><div class="panel"><h2>تسجيل حالة طالب</h2><form id="attendanceForm" class="grid"><div><label>الطالب</label><select name="student" required>${studentSelect()}</select></div><div><label>التاريخ</label><input name="date" type="date" value="${today()}" required></div><div><label>الحالة</label><select name="status"><option>حضور</option><option>غياب</option><option>تأخير</option></select></div><div><label>ملاحظات</label><input name="notes"></div><div><button>حفظ الحالة</button></div></form></div><div class="panel"><h2>سجل الحضور</h2><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>التاريخ</th><th>الحالة</th><th>واتساب ولي الأمر</th><th></th></tr></thead><tbody id="attendanceRows"></tbody></table></div></div>`,
-grades:()=>`<h1>درجات الشيت والامتحانات</h1><div class="panel"><h2>إضافة درجة</h2><form id="gradeForm" class="grid"><div><label>الطالب</label><select name="student" required>${studentSelect()}</select></div><div><label>اسم الشيت</label><input name="sheet" required placeholder="Sheet 1"></div><div><label>الدرجة</label><input name="score" type="number" min="0" step=".5" required></div><div><label>من</label><input name="max" type="number" min=".5" step=".5" required></div><div><label>التاريخ</label><input name="date" type="date" value="${today()}" required></div><div><button>حفظ الدرجة</button></div></form></div><div class="panel"><h2>سجل الدرجات</h2><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>الشيت</th><th>الدرجة</th><th>التاريخ</th><th>واتساب</th><th></th></tr></thead><tbody id="gradeRows"></tbody></table></div></div>`,
-payments:()=>`<h1>المدفوعات</h1><div class="panel"><h2>تسجيل دفعة</h2><form id="paymentForm" class="grid"><div><label>الطالب</label><select name="student" required>${studentSelect()}</select></div><div><label>المبلغ بالجنيه</label><input name="amount" type="number" min=".01" step=".01" required></div><div><label>تاريخ الدفع</label><input name="date" type="date" value="${today()}" required></div><div><label>وصف الدفعة</label><input name="description" placeholder="اشتراك شهر نوفمبر"></div><div><button>حفظ الدفعة</button></div></form></div><div class="panel"><h2>سجل المدفوعات</h2><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>المبلغ</th><th>التاريخ</th><th>الوصف</th><th>واتساب</th><th></th></tr></thead><tbody id="paymentRows"></tbody></table></div></div>`
-};
-function student(id){return db.students.find(s=>s.id===id)}
-function phoneLink(phone,msg){let n=String(phone||'').replace(/\D/g,'');if(n.startsWith('0'))n='2'+n;return 'https://wa.me/'+n+'?text='+encodeURIComponent(msg)}
-function waBtn(s,msg,label='واتساب'){return `<a class="wa" target="_blank" rel="noopener" href="${phoneLink(s.phone,msg)}">${label}</a>`}
-function renderStudents(){document.getElementById('studentRows').innerHTML=db.students.map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.phone)}</td><td>${esc(s.grade)}</td><td>${esc(s.group)}</td><td>${waBtn(s,`مرحباً ولي أمر الطالب ${s.name}، مع تحيات مستر حسن جاد - أكاديمية اللغة الإنجليزية.`)}</td><td><div class="actions"><button class="gray" onclick="editStudent('${s.id}')">تعديل</button><button class="red" onclick="del('students','${s.id}')">حذف</button></div></td></tr>`).join('')||'<tr><td colspan="6" class="empty">لا يوجد طلاب حتى الآن</td></tr>';
-document.getElementById('studentForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.students.push({id:id(),name:f.get('name').trim(),phone:f.get('phone').trim(),grade:f.get('grade'),group:f.get('group'),notes:f.get('notes')});save();show('students');toast('تم حفظ الطالب')}}
-function editStudent(i){let s=student(i);let n=prompt('اسم الطالب',s.name);if(n===null)return;let p=prompt('رقم ولي الأمر',s.phone);if(p===null)return;s.name=n.trim();s.phone=p.trim();save();show('students');toast('تم التعديل')}
-function renderCourses(){document.getElementById('courseRows').innerHTML=db.courses.map(c=>`<tr><td>${esc(c.title)}</td><td>${esc(c.group)}</td><td>${esc(c.price)} ج.م</td><td>${esc(c.details)}</td><td><button class="red" onclick="del('courses','${c.id}')">حذف</button></td></tr>`).join('')||'<tr><td colspan="5" class="empty">لا توجد كورسات</td></tr>';document.getElementById('courseForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.courses.push({id:id(),title:f.get('title'),group:f.get('group'),price:f.get('price'),details:f.get('details')});save();show('courses');toast('تم إضافة الكورس')}}
-function renderAttendance(){document.getElementById('attendanceRows').innerHTML=[...db.attendance].reverse().map(a=>{let s=student(a.student);if(!s)return '';let msg=`تنبيه من مستر حسن جاد: الطالب ${s.name}، حالة الحضور بتاريخ ${a.date}: ${a.status}.`;return `<tr><td>${esc(s.name)}</td><td>${esc(a.date)}</td><td>${esc(a.status)}</td><td>${waBtn(s,msg,'إرسال إشعار')}</td><td><button class="red" onclick="del('attendance','${a.id}')">حذف</button></td></tr>`}).join('')||'<tr><td colspan="5" class="empty">لا توجد سجلات</td></tr>';document.getElementById('attendanceForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.attendance.push({id:id(),student:f.get('student'),date:f.get('date'),status:f.get('status'),notes:f.get('notes')});save();show('attendance');toast('تم تسجيل الحالة')}}
-function renderGrades(){document.getElementById('gradeRows').innerHTML=[...db.grades].reverse().map(g=>{let s=student(g.student);if(!s)return '';let msg=`نتيجة الطالب ${s.name} في ${g.sheet}: ${g.score} من ${g.max} بتاريخ ${g.date}. مع تحيات مستر حسن جاد.`;return `<tr><td>${esc(s.name)}</td><td>${esc(g.sheet)}</td><td>${esc(g.score)} / ${esc(g.max)}</td><td>${esc(g.date)}</td><td>${waBtn(s,msg,'إرسال الدرجة')}</td><td><button class="red" onclick="del('grades','${g.id}')">حذف</button></td></tr>`}).join('')||'<tr><td colspan="6" class="empty">لا توجد درجات</td></tr>';document.getElementById('gradeForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);if(Number(f.get('score'))>Number(f.get('max'))){toast('الدرجة لا يمكن أن تكون أكبر من الدرجة النهائية');return}db.grades.push({id:id(),student:f.get('student'),sheet:f.get('sheet'),score:f.get('score'),max:f.get('max'),date:f.get('date')});save();show('grades');toast('تم حفظ الدرجة')}}
-function renderPayments(){document.getElementById('paymentRows').innerHTML=[...db.payments].reverse().map(p=>{let s=student(p.student);if(!s)return '';let msg=`تم تسجيل استلام مبلغ ${p.amount} جنيه للطالب ${s.name} بتاريخ ${p.date}${p.description?' عن '+p.description:''}. شكراً لكم - مستر حسن جاد.`;return `<tr><td>${esc(s.name)}</td><td>${esc(p.amount)} ج.م</td><td>${esc(p.date)}</td><td>${esc(p.description)}</td><td>${waBtn(s,msg,'تأكيد الدفع')}</td><td><button class="red" onclick="del('payments','${p.id}')">حذف</button></td></tr>`}).join('')||'<tr><td colspan="6" class="empty">لا توجد مدفوعات</td></tr>';document.getElementById('paymentForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target);db.payments.push({id:id(),student:f.get('student'),amount:f.get('amount'),date:f.get('date'),description:f.get('description')});save();show('payments');toast('تم تسجيل الدفعة')}}
-function del(table,i){if(!confirm('متأكد من الحذف؟'))return;db[table]=db[table].filter(x=>x.id!==i);save();let p=({students:'students',courses:'courses',attendance:'attendance',grades:'grades',payments:'payments'})[table];show(p);toast('تم الحذف')}
-function backup(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hassan-gad-academy-backup.json';a.click();URL.revokeObjectURL(a.href);toast('تم تنزيل النسخة الاحتياطية')}
-function restoreData(e){let file=e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.students||!x.courses)throw Error();db={...db,...x};save();show('home');toast('تم استعادة البيانات')}catch(err){toast('ملف النسخة غير صالح')}};r.readAsText(file);e.target.value=''}
-show('home');
-</script></body></html>
+const $=id=>document.getElementById(id);
+const get=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
+let students=get('hg_students',[]),attendance=get('hg_attendance',{}),grades=get('hg_grades',[]),payments=get('hg_payments',{}),settings=get('hg_settings',{phone:'201067820554'});
+let codes=get('hg_codes_final',{master:'Hassan2026',pay:'joo222',courses:'joo222',lessons:'joo222',settings:'joo222'});
+let unlocked=new Set(JSON.parse(localStorage.getItem('hg_unlocked_final')||'[]')),pending=null;
+const today=()=>new Date().toISOString().slice(0,10),month=()=>today().slice(0,7);
+$('attDate').value=today();$('payMonth').value=month();
+function save(){localStorage.setItem('hg_students',JSON.stringify(students));localStorage.setItem('hg_attendance',JSON.stringify(attendance));localStorage.setItem('hg_grades',JSON.stringify(grades));localStorage.setItem('hg_payments',JSON.stringify(payments));localStorage.setItem('hg_codes_final',JSON.stringify(codes));}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function checkOuter(){if($('outerInput').value.trim()===codes.master){$('outerLock').style.display='none';localStorage.setItem('hg_master_ok_final','1');}else{$('outerErr').style.display='block';}}
+function lockNow(){localStorage.removeItem('hg_master_ok_final');localStorage.setItem('hg_unlocked_final','[]');location.reload();}
+function tryOpen(id,btn){const locked={payments:'pay',courses:'courses',lessons:'lessons',settings:'settings'};if(locked[id] && !unlocked.has(id)){pending={id,btn};$('innerTitle').innerText=btn.innerText+' - مقفول 🔒';$('innerInput').value='';$('innerErr').style.display='none';$('innerLock').style.display='grid';return;}showPage(id,btn);}
+function checkInner(){let v=$('innerInput').value.trim();let map={payments:'pay',courses:'courses',lessons:'lessons',settings:'settings'};let key=map[pending.id];if(v===codes[key]){unlocked.add(pending.id);localStorage.setItem('hg_unlocked_final',JSON.stringify([...unlocked]));closeInner();showPage(pending.id,pending.btn);}else{$('innerErr').style.display='block';}}
+function closeInner(){$('innerLock').style.display='none';}
+function showPage(id,button){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));$(id).classList.add('active');if(button)button.classList.add('active');refresh();}
+function refresh(){renderStudents();renderAttendance();renderGrades();renderPayments();renderDashboard();fillSelect();}
+function renderDashboard(){let d=today();$('total').textContent=students.length;$('present').textContent=students.filter(s=>attendance[d+'_'+s.id]==='حاضر').length;$('absent').textContent=students.filter(s=>attendance[d+'_'+s.id]==='غائب').length;$('paid').textContent=students.filter(s=>payments[month()+'_'+s.id]).length;}
+function openStudent(){$('studentModal').style.display='grid';}
+function closeStudent(){$('studentModal').style.display='none';}
+function saveStudent(){let name=$('stName').value.trim();let parent=$('stParent').value.replace(/\D/g,'');if(!name||!parent){alert('اكتب اسم الطالب ورقم ولي الأمر');return;}students.push({id:Date.now().toString(),name,stage:$('stStage').value,type:$('stType').value,group:$('stGroup').value,parent,notes:$('stNotes').value});save();closeStudent();['stName','stParent','stNotes'].forEach(id=>$(id).value='');refresh();}
+function renderStudents(){let q=$('search')?.value?.toLowerCase()||'';let arr=students.filter(s=>s.name.toLowerCase().includes(q));$('studentsBody').innerHTML=arr.map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.stage)}</td><td>${esc(s.group)}</td><td>${esc(s.parent)}</td><td><button class="btn green" onclick="parentWhatsApp('${s.id}')">واتساب</button><button class="btn red" onclick="deleteStudent('${s.id}')">حذف</button></td></tr>`).join('')||'<tr><td colspan="5">لا يوجد طلاب</td></tr>';}
+function deleteStudent(id){if(confirm('حذف الطالب؟')){students=students.filter(s=>s.id!==id);save();refresh();}}
+function renderAttendance(){let date=$('attDate').value||today();$('attendanceBody').innerHTML=students.map(s=>{let status=attendance[date+'_'+s.id]||'لم يسجل';return `<tr><td>${esc(s.name)}</td><td>${esc(s.group)}</td><td>${status}</td><td><button class="btn green" onclick="setAttendance('${s.id}','حاضر')">حاضر</button><button class="btn red" onclick="setAttendance('${s.id}','غائب')">غائب</button></td></tr>`;}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';}
+function setAttendance(id,status){attendance[($('attDate').value||today())+'_'+id]=status;save();refresh();}
+function fillSelect(){$('gradeStudent').innerHTML=students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');}
+function saveGrade(){let id=$('gradeStudent').value;let score=Number($('gradeScore').value);let max=Number($('gradeMax').value);if(!id||$('gradeScore').value===''||max<=0||score<0||score>max){alert('راجع بيانات الدرجة');return;}grades.unshift({id,score,max,date:today()});save();$('gradeScore').value='';refresh();}
+function renderGrades(){$('gradesBody').innerHTML=grades.map(g=>{let s=students.find(x=>x.id===g.id);return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${g.score}/${g.max}</td><td>${Math.round(g.score/g.max*100)}%</td><td>${g.date}</td></tr>`;}).join('')||'<tr><td colspan="4">لا توجد درجات</td></tr>';}
+function renderPayments(){let m=$('payMonth').value||month();$('paymentsBody').innerHTML=students.map(s=>{let paid=!!payments[m+'_'+s.id];return `<tr><td>${esc(s.name)}</td><td>${esc(s.group)}</td><td>${paid?'مدفوع':'لم يدفع'}</td><td><button class="btn ${paid?'red':'green'}" onclick="togglePayment('${s.id}')">${paid?'إلغاء الدفع':'تسجيل الدفع'}</button></td></tr>`;}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';}
+function togglePayment(id){let key=($('payMonth').value||month())+'_'+id;payments[key]=!payments[key];save();refresh();}
+function whatsapp(phone,msg){window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');}
+function parentWhatsApp(id){let s=students.find(x=>x.id===id);if(!s)return;let absences=Object.entries(attendance).filter(([k,v])=>k.endsWith('_'+id)&&v==='غائب');let last=grades.find(g=>g.id===id);let paid=!!payments[month()+'_'+id];let msg=`السلام عليكم ولي أمر الطالب ${s.name}\nتقرير المتابعة من مستر حسن جاد:\nالمرحلة: ${s.stage}\nالمجموعة: ${s.group}\nعدد مرات الغياب: ${absences.length}\nآخر درجة شيت: ${last?last.score+' من '+last.max:'لا توجد'}\nاشتراك الشهر: ${paid?'مدفوع':'غير مدفوع'}`;whatsapp(s.parent,msg);}
+function contact(course){whatsapp(settings.phone,'السلام عليكم يا مستر حسن، أريد الاستفسار عن '+course);}
+function updateWhatsapp(){$('topWhatsapp').href='https://wa.me/'+settings.phone;}
+function exportData(){let data={students,attendance,grades,payments,settings,codes};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hassan-gad-backup.json';a.click();}
+function clearData(){if(confirm('هل تريد حذف جميع البيانات؟')){students=[];attendance={};grades=[];payments={};save();refresh();}}
+function saveCodes(){codes.master=$('setMaster').value.trim()||codes.master;codes.pay=$('setPay').value.trim()||codes.pay;codes.courses=$('setCourses').value.trim()||codes.courses;codes.lessons=$('setLessons').value.trim()||codes.lessons;codes.settings=$('setSettings').value.trim()||codes.settings;let p=$('teacherPhone').value.replace(/\D/g,'');if(p.length>=10){settings.phone=p;localStorage.setItem('hg_settings',JSON.stringify(settings));}save();updateWhatsapp();alert('تم حفظ كل الأكواد ✅\nالخارجي: '+codes.master+'\nالداخلي: '+codes.pay);}
+$('attDate').addEventListener('change',renderAttendance);$('payMonth').addEventListener('change',renderPayments);
+$('teacherPhone').value=settings.phone;
+updateWhatsapp();refresh();
+if(localStorage.getItem('hg_master_ok_final')==='1'){$('outerLock').style.display='none';}
+</script>
+</body>
+</html>
