@@ -185,6 +185,7 @@ aside{display:grid;grid-template-columns:repeat(2,1fr)}
 <button class="navbtn" onclick="showPage('students',this)">👨‍🎓 الطلاب</button>
 <button class="navbtn" onclick="showPage('attendance',this)">📋 الحضور والغياب</button>
 <button class="navbtn" onclick="showPage('grades',this)">📝 درجات الشيت</button>
+<button class="navbtn" onclick="showPage('exams',this)">📝 درجات الامتحانات</button>
 <button class="navbtn" onclick="showPage('payments',this)">💳 المدفوعات</button>
 <button class="navbtn" onclick="showPage('courses',this)">🎓 الكورسات</button>
 <button class="navbtn" onclick="showPage('lessons',this)">💻 الدروس الأونلاين</button>
@@ -273,7 +274,33 @@ aside{display:grid;grid-template-columns:repeat(2,1fr)}
 </table>
 </div>
 </section>
-
+  
+<h2>درجات الامتحانات</h2>
+<section class="page" id="grades">
+<div class="panel">
+<div class="formgrid">
+<div class="field">
+<label>الطالب</label>
+<select id="gradeStudent"></select>
+</div>
+<div class="field">
+<label>الدرجة</label>
+<input id="gradeScore" type="number" min="0">
+</div>
+<div class="field">
+<label>الدرجة النهائية</label>
+<input id="gradeMax" type="number" value="20" min="1">
+</div>
+</div>
+<button class="btn gold" onclick="saveGrade()">حفظ الدرجة</button>
+</div>
+<div class="panel tablewrap">
+<table>
+<thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead>
+<tbody id="gradesBody"></tbody>
+</table>
+</div>
+</section>
 <section class="page" id="payments">
 <h2>المدفوعات الشهرية</h2>
 <div class="panel">
