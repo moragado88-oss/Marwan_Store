@@ -269,38 +269,43 @@ aside{display:grid;grid-template-columns:repeat(2,1fr)}
 </div>
 <div class="panel tablewrap">
 <table>
-<thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead>
+<thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th><th>حذف</th></tr></thead>
 <tbody id="gradesBody"></tbody>
 </table>
 </div>
 </section>
-  
+
+<section class="page" id="exams">
 <h2>درجات الامتحانات</h2>
-<section class="page" id="grades">
 <div class="panel">
 <div class="formgrid">
 <div class="field">
 <label>الطالب</label>
-<select id="gradeStudent"></select>
+<select id="examStudent"></select>
+</div>
+<div class="field">
+<label>اسم الامتحان</label>
+<input id="examName" placeholder="مثال: امتحان شهر نوفمبر">
 </div>
 <div class="field">
 <label>الدرجة</label>
-<input id="gradeScore" type="number" min="0">
+<input id="examScore" type="number" min="0">
 </div>
 <div class="field">
 <label>الدرجة النهائية</label>
-<input id="gradeMax" type="number" value="20" min="1">
+<input id="examMax" type="number" value="100" min="1">
 </div>
 </div>
-<button class="btn gold" onclick="saveGrade()">حفظ الدرجة</button>
+<button class="btn gold" onclick="saveExam()">حفظ درجة الامتحان</button>
 </div>
 <div class="panel tablewrap">
 <table>
-<thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead>
-<tbody id="gradesBody"></tbody>
+<thead><tr><th>الطالب</th><th>اسم الامتحان</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th><th>حذف</th></tr></thead>
+<tbody id="examsBody"></tbody>
 </table>
 </div>
 </section>
+
 <section class="page" id="payments">
 <h2>المدفوعات الشهرية</h2>
 <div class="panel">
@@ -394,7 +399,7 @@ aside{display:grid;grid-template-columns:repeat(2,1fr)}
 <select id="stGroup">
 <option>قرية العاشر</option>
 <option>قرية الرضوان</option>
-  <option>قريه الكاب</option>
+<option>قريه الكاب</option>
 <option>أونلاين</option>
 </select>
 </div>
@@ -413,6 +418,7 @@ const get=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
 let students=get('hg_students',[]);
 let attendance=get('hg_attendance',{});
 let grades=get('hg_grades',[]);
+let exams=get('hg_exams',[]);
 let payments=get('hg_payments',{});
 let settings=get('hg_settings',{phone:'201067820554'});
 
@@ -426,6 +432,7 @@ function save(){
 localStorage.setItem('hg_students',JSON.stringify(students));
 localStorage.setItem('hg_attendance',JSON.stringify(attendance));
 localStorage.setItem('hg_grades',JSON.stringify(grades));
+localStorage.setItem('hg_exams',JSON.stringify(exams));
 localStorage.setItem('hg_payments',JSON.stringify(payments));
 }
 
@@ -445,6 +452,7 @@ function refresh(){
 renderStudents();
 renderAttendance();
 renderGrades();
+renderExams();
 renderPayments();
 renderDashboard();
 fillSelect();
@@ -527,7 +535,9 @@ refresh();
 }
 
 function fillSelect(){
-$('gradeStudent').innerHTML=students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');
+let opts=students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');
+$('gradeStudent').innerHTML=opts;
+$('examStudent').innerHTML=opts;
 }
 
 function saveGrade(){
@@ -538,7 +548,7 @@ if(!id||$('gradeScore').value===''||max<=0||score<0||score>max){
 alert('راجع بيانات الدرجة');
 return;
 }
-grades.unshift({id,score,max,date:today()});
+grades.unshift({id,score,max,date:today(),uid:Date.now().toString()});
 save();
 $('gradeScore').value='';
 refresh();
@@ -547,8 +557,41 @@ refresh();
 function renderGrades(){
 $('gradesBody').innerHTML=grades.map(g=>{
 let s=students.find(x=>x.id===g.id);
-return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${g.score}/${g.max}</td><td>${Math.round(g.score/g.max*100)}%</td><td>${g.date}</td></tr>`;
-}).join('')||'<tr><td colspan="4">لا توجد درجات</td></tr>';
+return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${g.score}/${g.max}</td><td>${Math.round(g.score/g.max*100)}%</td><td>${g.date}</td><td><button class="btn red" onclick="deleteGrade('${g.uid}')">حذف</button></td></tr>`;
+}).join('')||'<tr><td colspan="5">لا توجد درجات</td></tr>';
+}
+
+function deleteGrade(uid){
+if(confirm('حذف درجة الشيت دي؟')){ grades=grades.filter(g=>g.uid!==uid); save(); refresh(); }
+}
+
+// --- درجات الامتحانات ---
+function saveExam(){
+let id=$('examStudent').value;
+let name=$('examName').value.trim()||'امتحان';
+let score=Number($('examScore').value);
+let max=Number($('examMax').value);
+if(!id||$('examScore').value===''||max<=0||score<0||score>max){
+alert('راجع بيانات درجة الامتحان');
+return;
+}
+exams.unshift({id,name,score,max,date:today(),uid:Date.now().toString()});
+save();
+$('examScore').value='';
+$('examName').value='';
+refresh();
+alert('تم حفظ درجة الامتحان ✅');
+}
+
+function renderExams(){
+$('examsBody').innerHTML=exams.map(e=>{
+let s=students.find(x=>x.id===e.id);
+return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${esc(e.name)}</td><td>${e.score}/${e.max}</td><td>${Math.round(e.score/e.max*100)}%</td><td>${e.date}</td><td><button class="btn red" onclick="deleteExam('${e.uid}')">حذف</button></td></tr>`;
+}).join('')||'<tr><td colspan="6">لا توجد درجات امتحانات</td></tr>';
+}
+
+function deleteExam(uid){
+if(confirm('حذف درجة الامتحان دي؟')){ exams=exams.filter(e=>e.uid!==uid); save(); refresh(); }
 }
 
 function renderPayments(){
@@ -588,6 +631,7 @@ let s=students.find(x=>x.id===id);
 if(!s)return;
 let absences=Object.entries(attendance).filter(([k,v])=>k.endsWith('_'+id)&&v==='غائب');
 let last=grades.find(g=>g.id===id);
+let lastExam=exams.find(e=>e.id===id);
 let paid=!!payments[month()+'_'+id];
 let msg=`السلام عليكم ولي أمر الطالب ${s.name}
 تقرير المتابعة من مستر حسن جاد:
@@ -595,6 +639,7 @@ let msg=`السلام عليكم ولي أمر الطالب ${s.name}
 المجموعة: ${s.group}
 عدد مرات الغياب: ${absences.length}
 آخر درجة شيت: ${last?last.score+' من '+last.max:'لا توجد درجة مسجلة'}
+آخر درجة امتحان: ${lastExam?lastExam.name+' - '+lastExam.score+' من '+lastExam.max:'لا توجد درجة امتحان'}
 اشتراك الشهر: ${paid?'مدفوع':'غير مدفوع'}
 شكراً لحضراتكم.`;
 whatsapp(s.parent,msg);
@@ -618,7 +663,7 @@ $('topWhatsapp').href='https://wa.me/'+settings.phone;
 }
 
 function exportData(){
-let data={students,attendance,grades,payments,settings};
+let data={students,attendance,grades,exams,payments,settings};
 let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
 let a=document.createElement('a');
 a.href=URL.createObjectURL(blob);
@@ -628,7 +673,7 @@ a.click();
 
 function clearData(){
 if(confirm('هل تريد حذف جميع البيانات؟')){
-students=[];attendance={};grades=[];payments={};
+students=[];attendance={};grades=[];exams=[];payments={};
 save();refresh();
 }
 }
